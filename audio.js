@@ -36,6 +36,22 @@ class StudyAudioManager {
         name: '☕ Live: 24/7 Chillhop & Lofi',
         url: 'https://streams.ilovemusic.de/iloveradio17.mp3'
       },
+      'stream_vgm_all': {
+        name: '🎮 Live: Video Game Lofi & VGM',
+        url: 'https://relay.rainwave.cc/all.mp3'
+      },
+      'stream_vgm_covers': {
+        name: '🍄 Live: Nintendo & Game Remixes',
+        url: 'https://relay.rainwave.cc/covers.mp3'
+      },
+      'stream_vgm_ocremix': {
+        name: '⚔️ Live: OverClocked ReMix (VGM)',
+        url: 'https://relay.rainwave.cc/ocremix.mp3'
+      },
+      'stream_vgm_chiptune': {
+        name: '👾 Live: 8-Bit Chiptune Radio',
+        url: 'https://relay.rainwave.cc/chiptune.mp3'
+      },
       'stream_anime': {
         name: '🌸 Live: Anime & Cozy Lofi',
         url: 'https://stream.zeno.fm/0r0xa792kwzuv'
@@ -61,6 +77,8 @@ class StudyAudioManager {
     // YouTube Live Streams catalog for the Visual Lounge
     this.youtubeStreams = [
       { id: 'jfKfPfyJRdk', title: 'Lofi Girl — beats to relax/study to', icon: '🎧' },
+      { id: '1fueZCTYkpA', title: 'Nintendo Lofi Beats — Zelda & Mario', icon: '🍄' },
+      { id: 'x_7sXb_x228', title: 'Animal Crossing Lofi — 24/7 Study', icon: '🍃' },
       { id: '4xDzrJKXOOY', title: 'Synthwave Boy — beats to chill/game to', icon: '🌆' },
       { id: '5yx6BWlEVcY', title: 'Chillhop Radio — jazzy & lofi hip hop', icon: '🦝' },
       { id: 'lTRiuFIWV54', title: 'Cozy Rainy Cafe — deep ambient focus', icon: '🌧️' }
@@ -241,6 +259,13 @@ class StudyAudioManager {
         [110.00, 164.81, 220.00, 261.63, 329.63], // Am7
         [98.00, 146.83, 196.00, 246.94, 293.66],  // Gm9
         [87.31, 130.81, 174.61, 220.00, 261.63]   // Fmaj9
+      ],
+      // Progression 4: Zelda / Nintendo Nostalgia (Cmaj7 -> Em7 -> Fmaj7 -> Gsus4)
+      [
+        [130.81, 196.00, 246.94, 329.63, 392.00], // Cmaj7: C3, G3, B3, E4, G4
+        [164.81, 246.94, 293.66, 329.63, 392.00], // Em7: E3, B3, D4, E4, G4
+        [174.61, 261.63, 329.63, 349.23, 440.00], // Fmaj7: F3, C4, E4, F4, A4
+        [196.00, 261.63, 293.66, 349.23, 392.00]  // Gsus4: G3, C4, D4, F4, G4
       ]
     ];
 
