@@ -1,0 +1,1736 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deep Learning (KG23ACM401) — Master Study Portal & QB</title>
+
+<!-- Fonts: Plus Jakarta Sans (UI) & STIX Two Text (Math & Editorial) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- KaTeX CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<!-- KaTeX JS (Synchronous to ensure instant rendering) -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+<!-- MathJax 3 (Reliable Academic Typography Fallback) -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root{
+  color-scheme: light;
+  --bg: #ffffff;
+  --card-bg: #ffffff;
+  --ink: #2c2c2a;
+  --muted: #5f5e5a;
+  --line: #d3d1c7;
+  --soft: #f6f4ee;
+  --accent: #534AB7;
+  --accent-soft: #EEEDFE;
+  --teal: #0F6E56;
+  --teal-soft: #E1F5EE;
+  --rose: #D4537E;
+  --rose-soft: #FBEAF0;
+  --amber: #b45309;
+  --amber-soft: #fef3c7;
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+  --font-base: 16px;
+  --radius: 10px;
+}
+
+[data-theme="dark"]{
+  color-scheme: dark;
+  --bg: #141413;
+  --card-bg: #1c1c1b;
+  --ink: #e6e5df;
+  --muted: #a3a29b;
+  --line: #3d3d39;
+  --soft: #262624;
+  --accent: #9d95ff;
+  --accent-soft: #2b2752;
+  --teal: #38b293;
+  --teal-soft: #12382e;
+  --rose: #f07da1;
+  --rose-soft: #421c29;
+  --amber: #f59e0b;
+  --amber-soft: #451a03;
+  --header-bg: rgba(20, 20, 19, 0.96);
+  --shadow: 0 2px 10px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+[data-theme="sepia"]{
+  color-scheme: light;
+  --bg: #fbf7ee;
+  --card-bg: #fffcf5;
+  --ink: #433422;
+  --muted: #79664f;
+  --line: #d8cbbb;
+  --soft: #f4ecdf;
+  --accent: #874e1d;
+  --accent-soft: #faebd7;
+  --teal: #2f6948;
+  --teal-soft: #e3ede6;
+  --rose: #a84259;
+  --rose-soft: #f8e5ea;
+  --amber: #b45309;
+  --amber-soft: #fef3c7;
+  --header-bg: rgba(251, 247, 238, 0.96);
+  --shadow: 0 2px 8px rgba(67,52,34,0.08);
+  --shadow-lg: 0 10px 25px rgba(67,52,34,0.15);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.65;
+  transition: background-color .2s, color .2s;
+}
+
+/* ===================================================
+   MATHEMATICAL TYPOGRAPHY & EQUATION BOXES
+   =================================================== */
+.katex, .katex-display, .formula-box, mjx-container, .math-display {
+  font-family: 'KaTeX_Math', 'STIX Two Text', 'Cambria Math', 'Latin Modern Math', 'Times New Roman', serif !important;
+}
+
+.katex {
+  font-size: 1.08em !important;
+}
+
+.katex-display {
+  margin: 8px 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+}
+
+.formula-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formula-item {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all .15s ease;
+}
+.formula-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.formula-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.formula-box {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 1.15rem;
+  overflow-x: auto;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* Page Container */
+.page{
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 16px 16px 100px;
+}
+.page.split-mode{
+  max-width: 1400px;
+}
+
+/* Sticky Master Portal Header */
+.sticky-portal-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  margin: 0 -16px 16px;
+  padding: 10px 16px;
+  box-shadow: var(--shadow);
+}
+
+.portal-top-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.portal-title-wrap{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.portal-logo{
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.portal-subtitle{
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* View Mode Switcher */
+.view-switch-group{
+  display: inline-flex;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+.view-btn{
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.view-btn:hover{
+  color: var(--ink);
+}
+.view-btn.active{
+  background: var(--card-bg);
+  color: var(--accent);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+/* Pomodoro Widget */
+.pomo-widget{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+}
+.pomo-time{
+  font-weight: 700;
+  color: var(--accent);
+}
+.pomo-btn{
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.pomo-btn:hover{
+  background: var(--line);
+}
+
+/* Audio Widget */
+.audio-widget{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+  border-radius: 8px;
+  max-width: 100%;
+}
+.audio-play-btn{
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  transition: transform .15s ease;
+}
+.audio-play-btn:hover{
+  transform: scale(1.05);
+}
+.audio-select{
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  border-radius: 6px;
+  padding: 3px 6px;
+  max-width: 180px;
+}
+.audio-slider{
+  width: 45px;
+  height: 4px;
+  cursor: pointer;
+}
+.layer-btn{
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.layer-btn.active{
+  background: var(--card-bg);
+  color: var(--accent);
+  border-color: var(--line);
+}
+
+/* Tool Buttons */
+.tool-btn{
+  background: var(--soft);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all .15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.tool-btn:hover{
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.tool-btn.active{
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Filter Row */
+.filter-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-group{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.pill-btn{
+  background: var(--soft);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.pill-btn:hover{
+  color: var(--ink);
+  border-color: var(--muted);
+}
+.pill-btn.active{
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.pill-btn.pill-amber.active{
+  background: var(--amber);
+  color: #fff;
+  border-color: var(--amber);
+}
+
+/* Search Box */
+.search-box-wrap{
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 320px;
+}
+.search-input{
+  width: 100%;
+  padding: 6px 30px 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--ink);
+  font-size: 13px;
+  outline: none;
+  transition: all .2s ease;
+}
+.search-input:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.search-clear-btn{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 14px;
+  display: none;
+}
+
+/* Mastery Progress Bar */
+.mastery-bar-wrap{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+  font-size: 12px;
+  font-weight: 600;
+}
+.mastery-progress-track{
+  flex: 1;
+  height: 6px;
+  background: var(--soft);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.mastery-progress-fill{
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  width: 0%;
+  transition: width .3s ease;
+}
+.mastery-text{
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+}
+
+/* Question Cards */
+.q-card{
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+  transition: all .2s ease;
+  overflow: hidden;
+}
+.q-card:hover{
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+.q-card.mastered{
+  border-left: 4px solid var(--teal);
+}
+
+.q-header{
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--soft);
+}
+.q-header h2{
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.q-meta{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Badges */
+.badge{
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.badge-sub{ background: var(--line); color: var(--ink); }
+.badge-unit{ background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+.badge-marks{ background: var(--teal-soft); color: var(--teal); border: 1px solid var(--teal); }
+.badge-co{ background: var(--soft); color: var(--muted); border: 1px solid var(--line); }
+.badge-repeat{ background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber); font-weight: 800; }
+
+.learned-label{
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--muted);
+}
+.learned-label:hover{ color: var(--teal); }
+.learned-check{
+  accent-color: var(--teal);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.toggle-card-btn{
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Card Body */
+.q-body{
+  padding: 20px;
+}
+.q-card.collapsed .q-body{
+  display: none;
+}
+
+/* Repeat Notice Box */
+.repeat-alert-box{
+  background: var(--amber-soft);
+  border: 1px solid var(--amber);
+  border-left: 4px solid var(--amber);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* First Principles Box */
+.fp-box{
+  background: var(--soft);
+  border-left: 4px solid var(--accent);
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 20px;
+}
+.fp-title{
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.fp-note{
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.memory-anchor-pill{
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 12.5px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* Core Checklist Box */
+.checklist-box{
+  background: var(--teal-soft);
+  border: 1px solid var(--teal);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.checklist-title{
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.checklist-items{
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13.5px;
+}
+.checklist-items li{
+  margin-bottom: 4px;
+}
+
+/* Diagram Container */
+.diagram-card{
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  margin: 18px 0;
+  text-align: center;
+}
+.diagram-img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  cursor: zoom-in;
+  transition: transform .2s ease;
+}
+.diagram-img:hover{
+  transform: scale(1.01);
+}
+.diagram-caption{
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  display: block;
+}
+
+/* Split View Layout */
+.split-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 900px){
+  .split-grid{
+    grid-template-columns: 1fr;
+  }
+}
+.split-col{
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+.split-col-header{
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Lightbox Modal */
+.lightbox-modal{
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.lightbox-modal.active{
+  display: flex;
+}
+.lightbox-img{
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  background: #fff;
+}
+.lightbox-close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Formula Vault Modal */
+.vault-modal{
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.vault-modal.active{
+  display: flex;
+}
+.vault-card{
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  max-width: 860px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.vault-header{
+  padding: 16px 20px;
+  background: var(--soft);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.vault-body{
+  padding: 24px;
+  overflow-y: auto;
+  font-size: 14.5px;
+}
+
+/* Quick Jump Drawer */
+.drawer{
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: 340px;
+  background: var(--card-bg);
+  border-left: 1px solid var(--line);
+  z-index: 1500;
+  transform: translateX(100%);
+  transition: transform .25s ease;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+}
+.drawer.open{
+  transform: translateX(0);
+}
+.drawer-header{
+  padding: 14px 16px;
+  background: var(--soft);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+.drawer-list{
+  padding: 10px;
+  overflow-y: auto;
+  flex: 1;
+}
+.drawer-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  margin-bottom: 2px;
+  transition: background .15s ease;
+}
+.drawer-item:hover{
+  background: var(--soft);
+  color: var(--accent);
+}
+
+/* Floating / Pop-out YouTube Visual Lounge */
+.video-lounge-modal{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 380px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+  z-index: 1800;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all .2s ease;
+}
+.video-lounge-modal.active{
+  display: flex;
+}
+.video-lounge-modal.minimized{
+  width: 220px;
+  height: 44px;
+}
+.video-lounge-modal.minimized .video-frame-wrap,
+.video-lounge-modal.minimized .video-channel-bar{
+  display: none;
+}
+.video-header{
+  padding: 8px 12px;
+  background: var(--soft);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+}
+.video-frame-wrap{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000;
+}
+.video-frame-wrap iframe{
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border: none;
+}
+.video-channel-bar{
+  padding: 8px 10px;
+  background: var(--card-bg);
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  border-top: 1px solid var(--line);
+}
+.video-chan-btn{
+  background: var(--soft);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.video-chan-btn.active{
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+</style>
+</head>
+<body>
+
+<div class="page" id="mainPage">
+
+  <!-- STICKY MASTER PORTAL HEADER -->
+  <header class="sticky-portal-header">
+    
+    <!-- Top Row: Logo, Mode Switcher, Pomodoro, Audio, Tools -->
+    <div class="portal-top-bar">
+      
+      <div class="portal-title-wrap">
+        <div class="portal-logo">⚡ DL Master Portal</div>
+        <div class="portal-subtitle">7th Sem CSE • KG23ACM401</div>
+      </div>
+
+      <!-- View Switcher -->
+      <div class="view-switch-group">
+        <button class="view-btn active" data-view="simple" title="Plain English & Exam Checklist">💡 Simple</button>
+        <button class="view-btn" data-view="technical" title="Exhaustive University Textbook Answer">📐 Technical</button>
+        <button class="view-btn" data-view="split" title="Side-by-Side Comparison">⚖️ Split</button>
+      </div>
+
+      <!-- Pomodoro -->
+      <div class="pomo-widget" title="25-min Study Sprint">
+        <span>⏳</span>
+        <span class="pomo-time" id="pomoTime">25:00</span>
+        <button class="pomo-btn" id="pomoToggleBtn" title="Start/Pause">▶</button>
+        <button class="pomo-btn" id="pomoResetBtn" title="Reset">↺</button>
+      </div>
+
+      <!-- Audio Widget with Multi-Stream & Soundscapes -->
+      <div class="audio-widget">
+        <button class="audio-play-btn" id="audioToggleBtn" title="Play/Pause Lo-Fi (Spacebar)">▶</button>
+        
+        <select class="audio-select" id="audioModeSelect" title="Select Lo-Fi Soundscape or 24/7 Live Radio">
+          <optgroup label="🌐 24/7 LIVE LO-FI STREAMS">
+            <option value="stream_chillhop" selected>☕ 24/7 Chillhop & Lofi</option>
+            <option value="stream_anime">🌸 Anime & Cozy Lofi</option>
+            <option value="stream_cafe">☕ Cafe Lofi Beats</option>
+            <option value="stream_berlin">🏙️ Berlin Lofi Radio</option>
+            <option value="stream_nightwave">🌌 Nightwave Plaza (Vaporwave)</option>
+            <option value="stream_chillout">🍃 Ambient Chillout Lounge</option>
+          </optgroup>
+          <optgroup label="🎹 OFFLINE GENERATIVE SOUNDSCAPES">
+            <option value="lofi_synth">🎹 Generative Jazz Piano & Chords</option>
+            <option value="rain">🌧️ Rainy Lofi Bedroom</option>
+            <option value="binaural">🧠 40Hz Deep Focus Gamma</option>
+            <option value="brown_noise">📻 Warm Analog Brown Noise</option>
+          </optgroup>
+        </select>
+
+        <input type="range" class="audio-slider" id="audioVolSlider" min="0" max="1" step="0.05" value="0.65" title="Volume">
+        
+        <button class="layer-btn active" id="vinylLayerBtn" title="Toggle Vinyl Crackle Layer">📻</button>
+        <button class="layer-btn" id="rainLayerBtn" title="Toggle Rain Sound Layer">🌧️</button>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div style="display: flex; gap: 6px;">
+        <a href="index.html" class="tool-btn" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 4px;" title="Open Classic StudyMode">🏠 Classic</a>
+        <a href="master_roadmap.html" class="tool-btn" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 4px;" title="Open Exam Mastery Roadmap">🗺️ Roadmap</a>
+        <button class="tool-btn" id="videoLoungeBtn" title="Pop-out 24/7 Live Lo-Fi Video Lounge">📺 Lounge</button>
+        <button class="tool-btn" id="vaultBtn" title="Fast Formula & Diagram Vault (F)">⚡ Formulas</button>
+        <button class="tool-btn" id="drawerBtn" title="Quick Question Navigator">📑 Index</button>
+        <button class="tool-btn" id="themeBtn" title="Toggle Light/Dark/Sepia">🌓</button>
+      </div>
+
+    </div>
+
+    <!-- Filter Row: Units, Marks, Overlap Toggle, Search -->
+    <div class="filter-row">
+      
+      <div class="filter-group" id="unitFilters">
+        <button class="pill-btn active" data-unit="all">All Units</button>
+        <button class="pill-btn" data-unit="1">Unit 1</button>
+        <button class="pill-btn" data-unit="2">Unit 2</button>
+        <button class="pill-btn" data-unit="3">Unit 3</button>
+        <button class="pill-btn" data-unit="4">Unit 4</button>
+        <button class="pill-btn" data-unit="5">Unit 5</button>
+      </div>
+
+      <div class="filter-group" id="marksFilters">
+        <button class="pill-btn active" data-marks="all">All Marks</button>
+        <button class="pill-btn" data-marks="5">05M</button>
+        <button class="pill-btn" data-marks="10">10M</button>
+      </div>
+
+      <div class="filter-group">
+        <button class="pill-btn pill-amber" id="overlapFilterBtn" title="Show only 14 overlapping or duplicate questions">⚠️ Overlaps Only</button>
+        <button class="pill-btn" id="hideRepeatsBtn" title="Fast Track: Hide questions that are subsumed by 10M supersets">⚡ Fast Track</button>
+      </div>
+
+      <div class="search-box-wrap">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search questions or keywords... (/ to focus)">
+        <button class="search-clear-btn" id="searchClearBtn">✕</button>
+      </div>
+
+    </div>
+
+    <!-- Mastery Progress Bar -->
+    <div class="mastery-bar-wrap">
+      <span class="mastery-text" id="masteryText">Mastery: 0 / 40 (0%)</span>
+      <div class="mastery-progress-track">
+        <div class="mastery-progress-fill" id="masteryFill"></div>
+      </div>
+      <button class="tool-btn" id="resetMasteryBtn" style="padding: 2px 6px; font-size: 11px;">Reset</button>
+    </div>
+
+  </header>
+
+  <!-- QUESTION CARDS CONTAINER -->
+  <main id="cardsContainer">
+    <!-- Dynamically rendered via questions_data.js -->
+  </main>
+
+</div>
+
+<!-- FLOATING LIVE LO-FI VIDEO LOUNGE -->
+<div class="video-lounge-modal" id="videoLoungeModal">
+  <div class="video-header">
+    <span id="loungeTitle">📺 24/7 Live Lofi Stream</span>
+    <div style="display: flex; gap: 4px;">
+      <button class="tool-btn" id="loungeMinBtn" style="padding: 1px 6px; font-size: 11px;">_</button>
+      <button class="tool-btn" id="loungeCloseBtn" style="padding: 1px 6px; font-size: 11px;">✕</button>
+    </div>
+  </div>
+  <div class="video-frame-wrap">
+    <iframe id="loungeFrame" src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="video-channel-bar">
+    <button class="video-chan-btn active" data-vid="jfKfPfyJRdk">🎧 Lofi Girl</button>
+    <button class="video-chan-btn" data-vid="4xDzrJKXOOY">🌆 Synthwave</button>
+    <button class="video-chan-btn" data-vid="5yx6BWlEVcY">🦝 Chillhop</button>
+    <button class="video-chan-btn" data-vid="lTRiuFIWV54">🌧️ Rainy Cafe</button>
+  </div>
+</div>
+
+<!-- LIGHTBOX MODAL -->
+<div class="lightbox-modal" id="lightboxModal">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="Full-size Diagram">
+</div>
+
+<!-- FORMULA VAULT MODAL (STUNNING TEXTBOOK MATHEMATICAL TYPOGRAPHY) -->
+<div class="vault-modal" id="vaultModal">
+  <div class="vault-card">
+    <div class="vault-header">
+      <div style="font-weight: 800; font-size: 16px; color: var(--accent);">⚡ High-Yield Exam Formulas & Derivations</div>
+      <button class="tool-btn" id="vaultCloseBtn">✕ Close</button>
+    </div>
+    <div class="vault-body">
+      
+      <!-- UNIT 1 -->
+      <h2 style="font-size: 1.15rem; color: var(--accent); margin-top: 0; border-bottom: 2px solid var(--accent); padding-bottom: 4px;">
+        Unit 1: Backpropagation 4 Golden Equations & Loss
+      </h2>
+      <div class="formula-grid">
+        <div class="formula-item">
+          <div class="formula-label">1. Output Layer Error Sensitivity:</div>
+          <div class="formula-box">
+            $$\delta^{(L)} = \nabla_{a^{(L)}} J = \nabla_{h^{(L)}} J \odot \sigma'(a^{(L)})$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">2. Backpropagate Sensitivity to Hidden Layers:</div>
+          <div class="formula-box">
+            $$\delta^{(l)} = \left((W^{(l+1)})^T \delta^{(l+1)}\right) \odot \sigma'(a^{(l)})$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">3. Weight Tensor Gradient:</div>
+          <div class="formula-box">
+            $$\frac{\partial J}{\partial W^{(l)}} = \delta^{(l)} (h^{(l-1)})^T$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">4. Bias Vector Gradient:</div>
+          <div class="formula-box">
+            $$\frac{\partial J}{\partial b^{(l)}} = \delta^{(l)}$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">5. Multi-Class Cross-Entropy Loss:</div>
+          <div class="formula-box">
+            $$L_{CE} = -\sum_{k=1}^K y_k \log(\hat{y}_k)$$
+          </div>
+        </div>
+      </div>
+
+      <!-- UNIT 2 -->
+      <h2 style="font-size: 1.15rem; color: var(--teal); margin-top: 28px; border-bottom: 2px solid var(--teal); padding-bottom: 4px;">
+        Unit 2: Regularization, Initialization & Adaptive Optimizers
+      </h2>
+      <div class="formula-grid">
+        <div class="formula-item">
+          <div class="formula-label">L2 Regularization (Ridge / Weight Decay):</div>
+          <div class="formula-box">
+            $$\tilde{J}(w) = J(w) + \frac{\alpha}{2} \|w\|_2^2 \implies w \leftarrow (1 - \epsilon \alpha) w - \epsilon \nabla_w J(w)$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">L1 Regularization (Lasso — Induces Sparsity):</div>
+          <div class="formula-box">
+            $$\tilde{J}(w) = J(w) + \alpha \|w\|_1 \implies w \leftarrow w - \epsilon \nabla_w J(w) - \epsilon \alpha \operatorname{sign}(w)$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">Xavier / Glorot (Tanh) vs He / Kaiming (ReLU) Initialization:</div>
+          <div class="formula-box">
+            $$\text{Var}(W_{\text{Xavier}}) = \frac{2}{n_{in} + n_{out}}, \qquad \text{Var}(W_{\text{He}}) = \frac{2}{n_{in}}$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">Adam (Adaptive Moment Estimation) Complete Update:</div>
+          <div class="formula-box">
+            $$m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t, \quad v_t = \beta_2 v_{t-1} + (1-\beta_2)g_t^2$$
+            $$\hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1 - \beta_2^t}, \quad \theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t$$
+          </div>
+        </div>
+      </div>
+
+      <!-- UNIT 3 -->
+      <h2 style="font-size: 1.15rem; color: var(--rose); margin-top: 28px; border-bottom: 2px solid var(--rose); padding-bottom: 4px;">
+        Unit 3: CNN Convolution Dimension & Depthwise Efficiency
+      </h2>
+      <div class="formula-grid">
+        <div class="formula-item">
+          <div class="formula-label">Spatial Output Feature Map Dimension:</div>
+          <div class="formula-box">
+            $$O = \left\lfloor \frac{I - K + 2P}{S} \right\rfloor + 1$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">MobileNet Depthwise Separable Computation Ratio:</div>
+          <div class="formula-box">
+            $$\text{Ratio} = \frac{D_K^2 \cdot M \cdot D_F^2 + M \cdot N \cdot D_F^2}{D_K^2 \cdot M \cdot N \cdot D_F^2} = \frac{1}{N} + \frac{1}{D_K^2} \approx \frac{1}{9} \approx 11\% \text{ of standard conv}$$
+          </div>
+        </div>
+      </div>
+
+      <!-- UNIT 4 -->
+      <h2 style="font-size: 1.15rem; color: var(--accent); margin-top: 28px; border-bottom: 2px solid var(--accent); padding-bottom: 4px;">
+        Unit 4: Recurrent Neural Networks & LSTM Gating Equations
+      </h2>
+      <div class="formula-grid">
+        <div class="formula-item">
+          <div class="formula-label">Standard Recurrent Hidden Update & Vanishing Gradient:</div>
+          <div class="formula-box">
+            $$h^{(t)} = \tanh\left(W h^{(t-1)} + U x^{(t)} + b\right), \qquad \frac{\partial h^{(T)}}{\partial h^{(1)}} \propto W^{T-1}$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">LSTM 3 Gates + Cell State Highway (Constant Error Carousel):</div>
+          <div class="formula-box">
+            $$f_t = \sigma\left(W_f [h_{t-1}, x_t] + b_f\right) \quad \text{[Forget Gate]}$$
+            $$i_t = \sigma\left(W_i [h_{t-1}, x_t] + b_i\right), \quad \tilde{C}_t = \tanh\left(W_c [h_{t-1}, x_t] + b_c\right) \quad \text{[Input Gate]}$$
+            $$C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t \quad \text{[Cell State Highway Update]}$$
+            $$o_t = \sigma\left(W_o [h_{t-1}, x_t] + b_o\right), \quad h_t = o_t \odot \tanh(C_t) \quad \text{[Output Gate]}$$
+          </div>
+        </div>
+      </div>
+
+      <!-- UNIT 5 -->
+      <h2 style="font-size: 1.15rem; color: var(--teal); margin-top: 28px; border-bottom: 2px solid var(--teal); padding-bottom: 4px;">
+        Unit 5: Evaluation Metrics & Multi-Digit Recognition
+      </h2>
+      <div class="formula-grid">
+        <div class="formula-item">
+          <div class="formula-label">Classification Precision, Recall, and Harmonic Mean (F1):</div>
+          <div class="formula-box">
+            $$\text{Precision} = \frac{TP}{TP + FP}, \qquad \text{Recall} = \frac{TP}{TP + FN}$$
+            $$F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}$$
+          </div>
+        </div>
+
+        <div class="formula-item">
+          <div class="formula-label">SVHN Multi-Digit Joint Sequence Factorization:</div>
+          <div class="formula-box">
+            $$P(S \mid X) = P(L \mid X) \prod_{i=1}^L P(S_i \mid X)$$
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- QUICK NAV DRAWER -->
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <span>📑 Question Navigator (40)</span>
+    <button class="tool-btn" id="drawerCloseBtn">✕</button>
+  </div>
+  <div class="drawer-list" id="drawerList"></div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="audio.js"></script>
+<script src="questions_data.js"></script>
+
+<script>
+// --- BULLETPROOF MATH RENDERING ENGINE ---
+function triggerMathRender(root = document.body) {
+  if (window.renderMathInElement) {
+    try {
+      renderMathInElement(root, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\(', right: '\\)', display: false}
+        ],
+        throwOnError: false,
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    } catch(e) {
+      console.warn("KaTeX render error:", e);
+    }
+  } else if (window.MathJax && window.MathJax.typesetPromise) {
+    window.MathJax.typesetPromise([root]).catch(err => console.warn(err));
+  } else {
+    // Retry in 150ms if library is still initializing
+    setTimeout(() => triggerMathRender(root), 150);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const state = {
+    questions: window.QUESTIONS_DATA || [],
+    view: 'simple', // 'simple', 'technical', 'split'
+    activeUnit: 'all',
+    activeMarks: 'all',
+    onlyOverlaps: false,
+    hideRepeats: false,
+    searchQuery: '',
+    mastered: new Set(JSON.parse(localStorage.getItem('dl_mastered') || '[]')),
+    theme: localStorage.getItem('dl_theme') || 'dark',
+    pomoSeconds: 25 * 60,
+    pomoRunning: false,
+    pomoInterval: null
+  };
+
+  // Set Theme
+  document.documentElement.setAttribute('data-theme', state.theme);
+
+  // DOM Elements
+  const cardsContainer = document.getElementById('cardsContainer');
+  const mainPage = document.getElementById('mainPage');
+  const masteryText = document.getElementById('masteryText');
+  const masteryFill = document.getElementById('masteryFill');
+  const searchInput = document.getElementById('searchInput');
+  const searchClearBtn = document.getElementById('searchClearBtn');
+  const overlapFilterBtn = document.getElementById('overlapFilterBtn');
+  const hideRepeatsBtn = document.getElementById('hideRepeatsBtn');
+  const drawer = document.getElementById('drawer');
+  const drawerList = document.getElementById('drawerList');
+
+  // Subsumed repeat IDs to hide in Fast Track
+  const subsumedIds = new Set(['u1_q3', 'u2_q9', 'u2_q10', 'u2_q11', 'u2_q12', 'u2_q14', 'u3_q17', 'u3_q18', 'u4_q25', 'u4_q28', 'u5_q33', 'u5_q34', 'u5_q35', 'u5_q36']);
+
+  // Render Drawer Index
+  function renderDrawer() {
+    drawerList.innerHTML = state.questions.map(q => {
+      const isM = state.mastered.has(q.id);
+      return `
+        <a href="#${q.id}" class="drawer-item" data-id="${q.id}">
+          <span style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 11px; opacity: 0.7;">[U${q.unit}]</span>
+            <span style="font-weight: 600;">${q.q_num}</span>
+            <span style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${q.title}</span>
+          </span>
+          <span>${isM ? '✅' : '⚪'}</span>
+        </a>
+      `;
+    }).join('');
+
+    drawerList.querySelectorAll('.drawer-item').forEach(item => {
+      item.addEventListener('click', () => {
+        drawer.classList.remove('open');
+      });
+    });
+  }
+
+  // Update Mastery UI
+  function updateMasteryUI() {
+    const total = state.questions.length;
+    const masteredCount = state.mastered.size;
+    const pct = Math.round((masteredCount / total) * 100);
+    masteryText.textContent = `Mastery: ${masteredCount} / ${total} (${pct}%)`;
+    masteryFill.style.width = `${pct}%`;
+    localStorage.setItem('dl_mastered', JSON.stringify(Array.from(state.mastered)));
+  }
+
+  // Filter Questions
+  function getFilteredQuestions() {
+    return state.questions.filter(q => {
+      // Unit filter
+      if (state.activeUnit !== 'all' && q.unit.toString() !== state.activeUnit) return false;
+      // Marks filter
+      if (state.activeMarks !== 'all' && !q.marks.includes(state.activeMarks)) return false;
+      // Overlap filter
+      if (state.onlyOverlaps && !q.repeat_notice) return false;
+      // Fast track (hide subsumed)
+      if (state.hideRepeats && subsumedIds.has(q.id)) return false;
+      // Search
+      if (state.searchQuery) {
+        const query = state.searchQuery.toLowerCase();
+        const matchTitle = q.title.toLowerCase().includes(query);
+        const matchNum = q.q_num.toLowerCase().includes(query);
+        const matchPlain = (q.plain_english || '').toLowerCase().includes(query);
+        const matchChecklist = (q.checklist || []).join(' ').toLowerCase().includes(query);
+        if (!matchTitle && !matchNum && !matchPlain && !matchChecklist) return false;
+      }
+      return true;
+    });
+  }
+
+  // Render Cards
+  function renderCards() {
+    const list = getFilteredQuestions();
+    if (list.length === 0) {
+      cardsContainer.innerHTML = `
+        <div style="text-align: center; padding: 60px 20px; color: var(--muted);">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🔍</div>
+          <div style="font-size: 1.1rem; font-weight: 700;">No questions match your current filters.</div>
+          <div style="font-size: 0.9rem; margin-top: 6px;">Try clearing search or switching unit/marks tabs.</div>
+        </div>
+      `;
+      return;
+    }
+
+    cardsContainer.innerHTML = list.map(q => {
+      const isM = state.mastered.has(q.id);
+
+      // Repeat alert box
+      const repeatHtml = q.repeat_notice ? `
+        <div class="repeat-alert-box">
+          ${q.repeat_notice}
+        </div>
+      ` : '';
+
+      // Checklist HTML
+      const checklistHtml = (q.checklist && q.checklist.length > 0) ? `
+        <div class="checklist-box">
+          <div class="checklist-title">🎯 Core Exam Scoring Checklist</div>
+          <ul class="checklist-items">
+            ${q.checklist.map(c => `<li><strong>${c}</strong></li>`).join('')}
+          </ul>
+        </div>
+      ` : '';
+
+      // Diagram HTML
+      const diagramHtml = q.image_url ? `
+        <div class="diagram-card">
+          <img src="${q.image_url}" class="diagram-img" alt="Diagram for ${q.title}" onclick="window.openLightbox('${q.image_url}')">
+          <span class="diagram-caption">🔍 High-Resolution Architecture Diagram (Click to enlarge)</span>
+        </div>
+      ` : '';
+
+      // Memory Trick
+      const memoryHtml = q.memory_trick ? `
+        <div><span class="memory-anchor-pill">💡 Memory Anchor: ${q.memory_trick}</span></div>
+      ` : '';
+
+      // Simple View Content
+      const simpleContent = `
+        ${repeatHtml}
+        <div class="fp-box">
+          <div class="fp-title">💡 From First Principles (Intuition)</div>
+          <div class="fp-note">Plain English concept for rapid understanding:</div>
+          <p style="margin: 0; font-size: 14.5px;">${q.plain_english || ''}</p>
+          ${memoryHtml}
+        </div>
+        ${checklistHtml}
+        ${diagramHtml}
+        <div class="simple-sections-body">
+          ${q.simple_sections_html || ''}
+        </div>
+      `;
+
+      // Technical View Content
+      const techContent = `
+        ${repeatHtml}
+        ${diagramHtml}
+        <div class="tech-sections-body">
+          ${q.technical_html || '<p>Detailed textbook derivation loading...</p>'}
+        </div>
+      `;
+
+      // Split View Content
+      const splitContent = `
+        <div class="split-grid">
+          <div class="split-col">
+            <div class="split-col-header">💡 Simple & Intuitive Architecture</div>
+            ${simpleContent}
+          </div>
+          <div class="split-col">
+            <div class="split-col-header">📐 Technical University Standard</div>
+            ${techContent}
+          </div>
+        </div>
+      `;
+
+      let activeBodyHtml = simpleContent;
+      if (state.view === 'technical') activeBodyHtml = techContent;
+      if (state.view === 'split') activeBodyHtml = splitContent;
+
+      return `
+        <article class="q-card ${isM ? 'mastered' : ''}" id="${q.id}" data-qid="${q.id}">
+          <div class="q-header">
+            <h2>${q.q_num}. ${q.title}</h2>
+            <div class="q-meta">
+              <span class="badge badge-sub">DL</span>
+              <span class="badge badge-unit">Unit ${q.unit}</span>
+              <span class="badge badge-marks">${q.marks}</span>
+              ${q.blooms ? `<span class="badge badge-co">${q.blooms}</span>` : ''}
+              ${q.repeat_notice ? `<span class="badge badge-repeat">⚠️ OVERLAP</span>` : ''}
+
+              <label class="learned-label">
+                <input type="checkbox" class="learned-check" data-id="${q.id}" ${isM ? 'checked' : ''}>
+                Mastered
+              </label>
+              <button class="toggle-card-btn" data-id="${q.id}">Collapse</button>
+            </div>
+          </div>
+          <div class="q-body">
+            ${activeBodyHtml}
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    // Attach Event Handlers
+    attachCardEvents();
+
+    // Trigger Math Rendering on newly injected cards
+    triggerMathRender(cardsContainer);
+  }
+
+  function attachCardEvents() {
+    // Mastery checkboxes
+    document.querySelectorAll('.learned-check').forEach(chk => {
+      chk.addEventListener('change', (e) => {
+        const qid = e.target.dataset.id;
+        const card = document.getElementById(qid);
+        if (e.target.checked) {
+          state.mastered.add(qid);
+          if (card) card.classList.add('mastered');
+        } else {
+          state.mastered.delete(qid);
+          if (card) card.classList.remove('mastered');
+        }
+        updateMasteryUI();
+        renderDrawer();
+      });
+    });
+
+    // Collapse toggle
+    document.querySelectorAll('.toggle-card-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const qid = e.target.dataset.id;
+        const card = document.getElementById(qid);
+        if (card) {
+          card.classList.toggle('collapsed');
+          btn.textContent = card.classList.contains('collapsed') ? 'Expand' : 'Collapse';
+        }
+      });
+    });
+  }
+
+  // View Switcher Handlers
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.view = btn.dataset.view;
+      if (state.view === 'split') {
+        mainPage.classList.add('split-mode');
+      } else {
+        mainPage.classList.remove('split-mode');
+      }
+      renderCards();
+    });
+  });
+
+  // Unit Filters
+  document.querySelectorAll('#unitFilters .pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#unitFilters .pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.activeUnit = btn.dataset.unit;
+      renderCards();
+    });
+  });
+
+  // Marks Filters
+  document.querySelectorAll('#marksFilters .pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#marksFilters .pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.activeMarks = btn.dataset.marks;
+      renderCards();
+    });
+  });
+
+  // Overlap Filter
+  overlapFilterBtn.addEventListener('click', () => {
+    state.onlyOverlaps = !state.onlyOverlaps;
+    overlapFilterBtn.classList.toggle('active', state.onlyOverlaps);
+    renderCards();
+  });
+
+  // Fast Track Filter
+  hideRepeatsBtn.addEventListener('click', () => {
+    state.hideRepeats = !state.hideRepeats;
+    hideRepeatsBtn.classList.toggle('active', state.hideRepeats);
+    renderCards();
+  });
+
+  // Search Input
+  searchInput.addEventListener('input', (e) => {
+    state.searchQuery = e.target.value.trim();
+    searchClearBtn.style.display = state.searchQuery ? 'block' : 'none';
+    renderCards();
+  });
+  searchClearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    state.searchQuery = '';
+    searchClearBtn.style.display = 'none';
+    renderCards();
+  });
+
+  // Keyboard Shortcuts
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+    if (e.key === '/') {
+      e.preventDefault();
+      searchInput.focus();
+    } else if (e.key.toLowerCase() === 'f') {
+      openVault();
+    } else if (e.key.toLowerCase() === 'z') {
+      document.querySelector('.sticky-portal-header').style.display = 
+        document.querySelector('.sticky-portal-header').style.display === 'none' ? 'block' : 'none';
+    } else if (e.code === 'Space') {
+      e.preventDefault();
+      toggleAudio();
+    }
+  });
+
+  // Pomodoro Logic
+  const pomoTime = document.getElementById('pomoTime');
+  const pomoToggleBtn = document.getElementById('pomoToggleBtn');
+  const pomoResetBtn = document.getElementById('pomoResetBtn');
+
+  function updatePomoDisplay() {
+    const m = Math.floor(state.pomoSeconds / 60);
+    const s = state.pomoSeconds % 60;
+    pomoTime.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  }
+
+  pomoToggleBtn.addEventListener('click', () => {
+    if (state.pomoRunning) {
+      clearInterval(state.pomoInterval);
+      state.pomoRunning = false;
+      pomoToggleBtn.textContent = '▶';
+    } else {
+      state.pomoRunning = true;
+      pomoToggleBtn.textContent = '⏸';
+      state.pomoInterval = setInterval(() => {
+        if (state.pomoSeconds > 0) {
+          state.pomoSeconds--;
+          updatePomoDisplay();
+        } else {
+          clearInterval(state.pomoInterval);
+          state.pomoRunning = false;
+          pomoToggleBtn.textContent = '▶';
+          if (window.studyAudio) window.studyAudio.playTimerBell();
+          alert('Pomodoro Sprint Completed! Take a 5-minute breather.');
+        }
+      }, 1000);
+    }
+  });
+
+  pomoResetBtn.addEventListener('click', () => {
+    clearInterval(state.pomoInterval);
+    state.pomoRunning = false;
+    state.pomoSeconds = 25 * 60;
+    pomoToggleBtn.textContent = '▶';
+    updatePomoDisplay();
+  });
+
+  // Audio Engine Hook
+  const audioToggleBtn = document.getElementById('audioToggleBtn');
+  const audioModeSelect = document.getElementById('audioModeSelect');
+  const audioVolSlider = document.getElementById('audioVolSlider');
+  const vinylLayerBtn = document.getElementById('vinylLayerBtn');
+  const rainLayerBtn = document.getElementById('rainLayerBtn');
+
+  function toggleAudio() {
+    if (window.studyAudio) {
+      const isNowPlaying = window.studyAudio.togglePlay();
+      audioToggleBtn.textContent = isNowPlaying ? '⏸' : '▶';
+    }
+  }
+
+  audioToggleBtn.addEventListener('click', toggleAudio);
+  audioModeSelect.addEventListener('change', (e) => {
+    if (window.studyAudio) window.studyAudio.setMode(e.target.value);
+  });
+  audioVolSlider.addEventListener('input', (e) => {
+    if (window.studyAudio) window.studyAudio.setVolume(parseFloat(e.target.value));
+  });
+  vinylLayerBtn.addEventListener('click', () => {
+    if (window.studyAudio) {
+      const active = window.studyAudio.toggleVinyl();
+      vinylLayerBtn.classList.toggle('active', active);
+    }
+  });
+  rainLayerBtn.addEventListener('click', () => {
+    if (window.studyAudio) {
+      const active = window.studyAudio.toggleRain();
+      rainLayerBtn.classList.toggle('active', active);
+    }
+  });
+
+  // YouTube Video Lounge Modal
+  const videoLoungeBtn = document.getElementById('videoLoungeBtn');
+  const videoLoungeModal = document.getElementById('videoLoungeModal');
+  const loungeCloseBtn = document.getElementById('loungeCloseBtn');
+  const loungeMinBtn = document.getElementById('loungeMinBtn');
+  const loungeFrame = document.getElementById('loungeFrame');
+
+  videoLoungeBtn.addEventListener('click', () => {
+    videoLoungeModal.classList.toggle('active');
+  });
+  loungeCloseBtn.addEventListener('click', () => {
+    videoLoungeModal.classList.remove('active');
+  });
+  loungeMinBtn.addEventListener('click', () => {
+    videoLoungeModal.classList.toggle('minimized');
+    loungeMinBtn.textContent = videoLoungeModal.classList.contains('minimized') ? '◻' : '_';
+  });
+
+  document.querySelectorAll('.video-chan-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.video-chan-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const vidId = btn.dataset.vid;
+      loungeFrame.src = `https://www.youtube.com/embed/${vidId}?autoplay=1&mute=0`;
+    });
+  });
+
+  // Lightbox Modal
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  window.openLightbox = function(url) {
+    lightboxImg.src = url;
+    lightboxModal.classList.add('active');
+  };
+  lightboxClose.addEventListener('click', () => {
+    lightboxModal.classList.remove('active');
+  });
+  lightboxModal.addEventListener('click', (e) => {
+    if (e.target === lightboxModal) lightboxModal.classList.remove('active');
+  });
+
+  // Formula Vault Modal
+  const vaultBtn = document.getElementById('vaultBtn');
+  const vaultModal = document.getElementById('vaultModal');
+  const vaultCloseBtn = document.getElementById('vaultCloseBtn');
+
+  function openVault() {
+    vaultModal.classList.add('active');
+    triggerMathRender(vaultModal);
+  }
+
+  vaultBtn.addEventListener('click', openVault);
+  vaultCloseBtn.addEventListener('click', () => vaultModal.classList.remove('active'));
+  vaultModal.addEventListener('click', (e) => {
+    if (e.target === vaultModal) vaultModal.classList.remove('active');
+  });
+
+  // Quick Navigator Drawer
+  const drawerBtn = document.getElementById('drawerBtn');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+
+  drawerBtn.addEventListener('click', () => drawer.classList.add('open'));
+  drawerCloseBtn.addEventListener('click', () => drawer.classList.remove('open'));
+
+  // Theme Toggler
+  const themeBtn = document.getElementById('themeBtn');
+  const themes = ['dark', 'light', 'sepia'];
+  themeBtn.addEventListener('click', () => {
+    let nextIdx = (themes.indexOf(state.theme) + 1) % themes.length;
+    state.theme = themes[nextIdx];
+    document.documentElement.setAttribute('data-theme', state.theme);
+    localStorage.setItem('dl_theme', state.theme);
+  });
+
+  // Reset Mastery
+  document.getElementById('resetMasteryBtn').addEventListener('click', () => {
+    if (confirm('Reset your mastered questions progress?')) {
+      state.mastered.clear();
+      updateMasteryUI();
+      renderCards();
+      renderDrawer();
+    }
+  });
+
+  // Initial Boot
+  updateMasteryUI();
+  renderDrawer();
+  renderCards();
+
+  // Trigger Math Rendering on entire document body
+  triggerMathRender(document.body);
+});
+</script>
+
+</body>
+</html>

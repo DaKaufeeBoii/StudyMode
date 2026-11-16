@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StudyMode — Deep Learning (KG23ACM401) Finals Prep</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- KaTeX for crisp mathematical formulas -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+<!-- MathJax 3 (Reliable Academic Typography Fallback) -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Styles -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- TOP HEADER -->
+  <header class="top-header">
+    
+    <!-- Brand -->
+    <div class="brand-section">
+      <div class="brand-logo">⚡</div>
+      <div>
+        <div class="brand-title">StudyMode • Deep Learning</div>
+        <div class="brand-subtitle">KG23ACM401 • 7th Sem CSE</div>
+      </div>
+    </div>
+
+    <!-- Center Master Controls -->
+    <div class="center-controls">
+      <!-- Global View Switcher -->
+      <div class="view-switch-group">
+        <button class="view-btn active" data-view="simple" title="Plain English & Analogies">
+          <span>💡</span> Simple
+        </button>
+        <button class="view-btn" data-view="technical" title="University Exam Standard">
+          <span>📐</span> Technical
+        </button>
+        <button class="view-btn" data-view="split" title="Side-by-Side Comparison">
+          <span>⚖️</span> Split
+        </button>
+      </div>
+
+      <!-- Pomodoro Focus Timer -->
+      <div class="pomodoro-pill" title="25-min Study Sprint">
+        <span style="font-size: 0.85rem;">⏳</span>
+        <span class="pomo-timer" id="pomoDisplay">25:00</span>
+        <button class="pomo-btn" id="pomoToggleBtn" title="Start/Pause">▶</button>
+        <button class="pomo-btn" id="pomoResetBtn" title="Reset Timer">↺</button>
+      </div>
+    </div>
+
+    <!-- Right Controls: Audio & Fast Tools -->
+    <div class="right-tools">
+      
+      <!-- Built-in Lo-Fi & Ambient Lounge -->
+      <div class="audio-widget">
+        <button class="audio-play-btn" id="audioPlayBtn" title="Play/Pause Lo-Fi (Spacebar)">▶</button>
+        <select class="audio-mode-select" id="audioModeSelect" title="Audio Soundscape">
+          <optgroup label="🌐 24/7 LIVE LO-FI STREAMS">
+            <option value="stream_chillhop" selected>☕ 24/7 Chillhop & Lofi</option>
+            <option value="stream_anime">🌸 Anime & Cozy Lofi</option>
+            <option value="stream_cafe">☕ Cafe Lofi Beats</option>
+            <option value="stream_berlin">🏙️ Berlin Lofi Radio</option>
+            <option value="stream_nightwave">🌌 Nightwave Plaza (Vaporwave)</option>
+            <option value="stream_chillout">🍃 Ambient Chillout Lounge</option>
+          </optgroup>
+          <optgroup label="🎹 OFFLINE GENERATIVE SOUNDSCAPES">
+            <option value="lofi_synth">🎹 Generative Jazz Piano Beats</option>
+            <option value="rain">🌧️ Rain on Window</option>
+            <option value="binaural">🧠 40Hz Deep Focus</option>
+            <option value="brown_noise">📻 Brown Noise</option>
+          </optgroup>
+        </select>
+        <input type="range" class="audio-vol-slider" id="audioVolSlider" min="0" max="1" step="0.05" value="0.65" title="Volume">
+        <button class="tool-btn active" id="ambientVinylBtn" style="padding: 0 6px; font-size: 0.75rem;" title="Vinyl Crackle">📻</button>
+        <button class="tool-btn" id="ambientRainBtn" style="padding: 0 6px; font-size: 0.75rem;" title="Rain Layer">🌧️</button>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <button class="tool-btn" id="formulaVaultBtn" title="Fast Formula & Diagram Vault (F)">
+        <span>⚡</span> Formulas
+      </button>
+
+      <button class="tool-btn" id="scheduleBtn" title="Today's Emergency Timetable">
+        <span>📅</span> Schedule
+      </button>
+
+      <button class="tool-btn" id="zenToggleBtn" title="Zen Distraction-Free Mode (Z)">
+        <span>🧘</span> Zen
+      </button>
+
+      <button class="tool-btn" id="themeToggleBtn" title="Toggle Theme (Dark/OLED/Sepia/Light)">
+        <span>🌓</span>
+      </button>
+
+      <a href="master_portal.html" class="tool-btn" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 4px; border-color: var(--primary);" title="Open Master Study Portal & QB">
+        <span>📖</span> Master Plan
+      </a>
+      <a href="master_roadmap.html" class="tool-btn" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 4px;" title="Open Exam Mastery Roadmap">
+        <span>🗺️</span> Roadmap
+      </a>
+    </div>
+  </header>
+
+  <!-- APP BODY -->
+  <div class="app-body">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        
+        <!-- Search Input -->
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search questions, formulas, topics...">
+        </div>
+
+        <!-- Unit Filter Pills -->
+        <div class="unit-filter-scroll">
+          <button class="filter-pill active" data-unit="all">All Units</button>
+          <button class="filter-pill" data-unit="1">Unit 1</button>
+          <button class="filter-pill" data-unit="2">Unit 2</button>
+          <button class="filter-pill" data-unit="3">Unit 3</button>
+          <button class="filter-pill" data-unit="4">Unit 4</button>
+          <button class="filter-pill" data-unit="5">Unit 5</button>
+        </div>
+
+        <!-- Meta filter row (Marks & Progress) -->
+        <div class="meta-filter-row">
+          <div class="marks-toggle-group">
+            <button class="marks-btn active" data-marks="all">All</button>
+            <button class="marks-btn" data-marks="5">5 Marks</button>
+            <button class="marks-btn" data-marks="10">10 Marks</button>
+          </div>
+          <div class="progress-stat" id="progressStat">0/40 Mastered (0%)</div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+
+      </div>
+
+      <!-- Question List -->
+      <div class="question-nav-list" id="questionNavList">
+        <!-- Rendered via app.js -->
+      </div>
+    </aside>
+
+    <!-- MAIN READING VIEWPORT -->
+    <main class="content-area" id="contentScrollArea">
+      <div class="study-viewport" id="studyViewport">
+        <!-- Question Cards Rendered via app.js -->
+      </div>
+    </main>
+
+  </div>
+
+</div>
+
+<!-- MODAL: FORMULA & DIAGRAM FAST-VAULT -->
+<div class="modal-overlay" id="formulaModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title">⚡ Formula & Architecture Fast-Vault (Units 1 - 5)</div>
+      <button class="modal-close-btn" id="formulaModalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="formula-grid">
+        
+        <!-- Unit 1 -->
+        <div class="formula-card">
+          <h4>Unit 1: Backprop Gradient Chain Rule</h4>
+          <p>Derivative of loss w.r.t weight $w_{ij}$:</p>
+          <div class="formula-box">
+            $$\frac{\partial L}{\partial w_{ij}} = \frac{\partial L}{\partial a_j} \cdot \frac{\partial a_j}{\partial z_j} \cdot \frac{\partial z_j}{\partial w_{ij}} = \delta_j \cdot a_i$$
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <h4>Unit 1: Cross-Entropy Loss</h4>
+          <p>For multi-class classification with $C$ classes:</p>
+          <div class="formula-box">
+            $$L_{CE} = -\sum_{i=1}^C y_i \log(\hat{y}_i)$$
+          </div>
+        </div>
+
+        <!-- Unit 2 -->
+        <div class="formula-card">
+          <h4>Unit 2: L1 vs L2 Regularization</h4>
+          <p>L1 induces sparsity; L2 shrinks weights toward zero:</p>
+          <div class="formula-box">
+            $$J_{L1} = J_0 + \lambda \sum |w_i|, \quad J_{L2} = J_0 + \frac{\lambda}{2} \sum w_i^2$$
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <h4>Unit 2: Adam Optimizer Updates</h4>
+          <p>Combines Momentum (1st moment) & RMSProp (2nd moment):</p>
+          <div class="formula-box">
+            $$\hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1 - \beta_2^t}, \quad \theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t$$
+          </div>
+        </div>
+
+        <!-- Unit 3 -->
+        <div class="formula-card">
+          <h4>Unit 3: CNN Output Spatial Dimension</h4>
+          <p>Output width/height after convolution:</p>
+          <div class="formula-box">
+            $$O = \left\lfloor \frac{W - K + 2P}{S} \right\rfloor + 1$$
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <h4>Unit 3: ResNet Skip Connection</h4>
+          <p>Solves vanishing gradients by identity mapping:</p>
+          <div class="formula-box">
+            $$\mathbf{y} = \mathcal{F}(\mathbf{x}, \{W_i\}) + \mathbf{x}$$
+          </div>
+        </div>
+
+        <!-- Unit 4 -->
+        <div class="formula-card">
+          <h4>Unit 4: LSTM Gate Equations</h4>
+          <p>Forget, Input, Candidate, Cell state, Output:</p>
+          <div class="formula-box">
+            $$f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)$$
+            $$C_t = f_t \odot C_{t-1} + i_t \odot \tanh(W_c [h_{t-1}, x_t] + b_c)$$
+            $$h_t = o_t \odot \tanh(C_t)$$
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <h4>Unit 4: Scaled Dot-Product Attention</h4>
+          <p>Core of Transformers & Self-Attention:</p>
+          <div class="formula-box">
+            $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+          </div>
+        </div>
+
+        <!-- Unit 5 -->
+        <div class="formula-card">
+          <h4>Unit 5: Autoencoder Loss</h4>
+          <p>Reconstruction error between input $x$ and output $g(f(x))$:</p>
+          <div class="formula-box">
+            $$L_{AE} = \|x - g(f(x))\|^2$$
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <h4>Unit 5: GAN Minimax Objective</h4>
+          <p>Two-player zero-sum game between Discriminator and Generator:</p>
+          <div class="formula-box">
+            $$\min_G \max_D V(D, G) = \mathbb{E}_{x}[\log D(x)] + \mathbb{E}_{z}[\log(1 - D(G(z)))]$$
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: EMERGENCY TIMETABLE -->
+<div class="modal-overlay" id="scheduleModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title">📅 Emergency 1-Day Cramming Schedule (Nov 16, 2026)</div>
+      <button class="modal-close-btn" id="scheduleModalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="margin-bottom: 1rem; color: var(--text-muted);">
+        Follow these dedicated focus blocks. Cover 8 questions per block using the <strong>Scratchpad Method</strong> (read 2 mins, scribble diagram + formula for 1 min).
+      </p>
+      
+      <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+        <thead>
+          <tr style="background: var(--surface-hover); text-align: left;">
+            <th style="padding: 10px; border: 1px solid var(--border);">Time Slot</th>
+            <th style="padding: 10px; border: 1px solid var(--border);">Target Module</th>
+            <th style="padding: 10px; border: 1px solid var(--border);">Core Focus Topics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border: 1px solid var(--border); font-weight: 700; color: var(--primary);">11:30 AM – 01:00 PM</td>
+            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Unit 1</strong> (ML Basics & Deep Feedforward)</td>
+            <td style="padding: 10px; border: 1px solid var(--border);">Capacity/Overfitting, Hyperparams/Validation, Backprop derivation, XOR Problem, Activation functions.</td>
+          </tr>
+          <tr style="background: var(--bg-alt);">
+            <td style="padding: 8px 10px; border: 1px solid var(--border); color: var(--accent-amber);">01:00 PM – 01:45 PM</td>
+            <td style="padding: 8px 10px; border: 1px solid var(--border);" colspan="2">🍽️ <strong>Lunch & Brain Reset</strong> (Eat food, hydrate, step away from screens)</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid var(--border); font-weight: 700; color: var(--primary);">01:45 PM – 03:15 PM</td>
+            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Unit 2</strong> (Regularization & Optimization)</td>
+            <td style="padding: 10px; border: 1px solid var(--border);">L1/L2 penalties, Dropout, Early stopping, Adam & RMSProp, Batch Norm, Vanishing gradients & clipping.</td>
+          </tr>
+          <tr style="background: var(--bg-alt);">
+            <td style="padding: 8px 10px; border: 1px solid var(--border); color: var(--accent-amber);">03:15 PM – 03:30 PM</td>
+            <td style="padding: 8px 10px; border: 1px solid var(--border);" colspan="2">🚶 <strong>15-Min Quick Walk / Stretch</strong></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid var(--border); font-weight: 700; color: var(--primary);">03:30 PM – 05:00 PM</td>
+            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Unit 3</strong> (Convolutional Networks)</td>
+            <td style="padding: 10px; border: 1px solid var(--border);">Kernel/Stride/Padding math, Pooling types, Receptive field, AlexNet, ResNet skip connections, 1x1 Convs.</td>
+          </tr>
+          <tr style="background: var(--bg-alt);">
+            <td style="padding: 8px 10px; border: 1px solid var(--border); color: var(--accent-amber);">05:00 PM – 05:15 PM</td>
+            <td style="padding: 8px 10px; border: 1px solid var(--border);" colspan="2">☕ <strong>Tea / Caffeine Boost</strong></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid var(--border); font-weight: 700; color: var(--primary);">05:15 PM – 06:45 PM</td>
+            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Unit 4</strong> (Sequence Modeling & RNNs)</td>
+            <td style="padding: 10px; border: 1px solid var(--border);">Vanilla RNN & BPTT, Vanishing gradients, LSTM 3 gates & cell equations, GRU, Seq2Seq Attention mechanism.</td>
+          </tr>
+          <tr style="background: var(--bg-alt);">
+            <td style="padding: 8px 10px; border: 1px solid var(--border); color: var(--accent-amber);">06:45 PM – 07:15 PM</td>
+            <td style="padding: 8px 10px; border: 1px solid var(--border);" colspan="2">🍲 <strong>Quick Dinner Break</strong></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid var(--border); font-weight: 700; color: var(--primary);">07:15 PM – 08:45 PM</td>
+            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Unit 5</strong> (Autoencoders & GANs)</td>
+            <td style="padding: 10px; border: 1px solid var(--border);">Undercomplete/Denoising AE, VAE reparameterization trick, GAN Minimax objective, Generator vs Discriminator dynamics.</td>
+          </tr>
+          <tr style="background: var(--accent-emerald-light);">
+            <td style="padding: 10px; border: 1px solid var(--border); font-weight: 700; color: var(--accent-emerald);">09:00 PM – 11:00 PM</td>
+            <td style="padding: 10px; border: 1px solid var(--border);"><strong>The Safety & Mastery Drill</strong></td>
+            <td style="padding: 10px; border: 1px solid var(--border);">Review all 10-Mark high-yield questions + sketch diagrams from memory on paper.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="questions_data.js"></script>
+<script src="audio.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

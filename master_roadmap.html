@@ -1,0 +1,2300 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deep Learning (KG23ACM401) — Exam Mastery Roadmap & Question Bank Navigator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-raised: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  
+  --primary: #4f46e5;
+  --primary-light: #eef2ff;
+  --primary-border: #c7d2fe;
+  
+  --tier1: #dc2626;
+  --tier1-bg: #fef2f2;
+  --tier1-border: #fecaca;
+  
+  --tier2: #d97706;
+  --tier2-bg: #fffbeb;
+  --tier2-border: #fde68a;
+  
+  --tier3: #2563eb;
+  --tier3-bg: #eff6ff;
+  --tier3-border: #bfdbfe;
+  
+  --diff-easy: #059669;
+  --diff-easy-bg: #ecfdf5;
+  --diff-easy-border: #a7f3d0;
+  
+  --diff-med: #d97706;
+  --diff-med-bg: #fffbeb;
+  --diff-med-border: #fde68a;
+  
+  --diff-hard: #dc2626;
+  --diff-hard-bg: #fef2f2;
+  --diff-hard-border: #fecaca;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius: 12px;
+}
+
+[data-theme="dark"] {
+  --bg: #0b0f19;
+  --surface: #111827;
+  --surface-raised: #1f2937;
+  --border: #374151;
+  --border-strong: #4b5563;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+  
+  --primary: #818cf8;
+  --primary-light: #1e1b4b;
+  --primary-border: #3730a3;
+  
+  --tier1: #f87171;
+  --tier1-bg: #450a0a;
+  --tier1-border: #7f1d1d;
+  
+  --tier2: #fbbf24;
+  --tier2-bg: #451a03;
+  --tier2-border: #78350f;
+  
+  --tier3: #60a5fa;
+  --tier3-bg: #172554;
+  --tier3-border: #1e3a8a;
+  
+  --diff-easy: #34d399;
+  --diff-easy-bg: #064e3b;
+  --diff-easy-border: #065f46;
+  
+  --diff-med: #fbbf24;
+  --diff-med-bg: #451a03;
+  --diff-med-border: #78350f;
+  
+  --diff-hard: #f87171;
+  --diff-hard-bg: #450a0a;
+  --diff-hard-border: #7f1d1d;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding-bottom: 80px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+}
+
+.header-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-title h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-title p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle-btn {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.theme-toggle-btn:hover {
+  border-color: var(--border-strong);
+}
+
+.main-container {
+  max-width: 1320px;
+  margin: 24px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* TRACKER HERO */
+.hero-tracker {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-tracker {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-info h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.hero-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.stat-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stat-pill {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-pill.t1 { border-color: var(--tier1-border); background: var(--tier1-bg); color: var(--tier1); }
+.stat-pill.easy { border-color: var(--diff-easy-border); background: var(--diff-easy-bg); color: var(--diff-easy); }
+.stat-pill.med { border-color: var(--diff-med-border); background: var(--diff-med-bg); color: var(--diff-med); }
+.stat-pill.hard { border-color: var(--diff-hard-border); background: var(--diff-hard-bg); color: var(--diff-hard); }
+
+.tracker-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tracker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.tracker-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.tracker-score {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.progress-bar-bg {
+  height: 10px;
+  background: var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4f46e5, #06b6d4, #10b981);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tracker-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.tracker-btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tracker-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+.tracker-btn:hover {
+  color: var(--text-main);
+  border-color: var(--border-strong);
+}
+
+/* STUDY STRATEGY TABS */
+.strategy-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.strategy-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.strategy-content {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.phase-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phase-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  width: fit-content;
+  text-transform: uppercase;
+}
+.phase-1 { background: var(--diff-easy-bg); color: var(--diff-easy); border: 1px solid var(--diff-easy-border); }
+.phase-2 { background: var(--diff-med-bg); color: var(--diff-med); border: 1px solid var(--diff-med-border); }
+.phase-3 { background: var(--diff-hard-bg); color: var(--diff-hard); border: 1px solid var(--diff-hard-border); }
+
+.phase-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.phase-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* TOP 5 HARD QUESTIONS ACCORDION */
+.peaks-box {
+  background: var(--surface);
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.peaks-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.peaks-grid {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.peak-item {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.peak-item:hover {
+  border-color: var(--primary);
+}
+
+.peak-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.peak-details {
+  display: none;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.peak-item.open .peak-details {
+  display: block;
+}
+
+/* CONTROLS / FILTER BAR */
+.controls-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 73px;
+  z-index: 40;
+}
+
+.search-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.search-input-wrap {
+  flex: 1;
+  min-width: 260px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface-raised);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.sort-select {
+  padding: 10px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface-raised);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.filter-group-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-right: 4px;
+}
+
+.filter-pill {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+.filter-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text-main);
+}
+.filter-pill.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+/* QUESTIONS LIST & CARDS */
+.questions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.q-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.q-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.q-card.is-mastered {
+  border-color: var(--diff-easy-border);
+  background: linear-gradient(to right, var(--surface), var(--diff-easy-bg));
+}
+
+.q-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.q-checkbox-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+}
+
+.q-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border-strong);
+  border-radius: 6px;
+  margin-top: 3px;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: all 0.15s ease;
+  background: var(--surface);
+  flex-shrink: 0;
+}
+.q-checkbox:checked {
+  background: var(--diff-easy);
+  border-color: var(--diff-easy);
+}
+.q-checkbox:checked::before {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.q-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.q-unit-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+}
+
+.q-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-main);
+}
+
+.q-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.badge {
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge.marks-10 {
+  background: #fdf2f8;
+  color: #db2777;
+  border: 1px solid #fbcfe8;
+}
+[data-theme="dark"] .badge.marks-10 {
+  background: #4a044e;
+  color: #f472b6;
+  border-color: #831843;
+}
+
+.badge.marks-5 {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+[data-theme="dark"] .badge.marks-5 {
+  background: #052e16;
+  color: #4ade80;
+  border-color: #14532d;
+}
+
+.badge.tier-1 {
+  background: var(--tier1-bg);
+  color: var(--tier1);
+  border: 1px solid var(--tier1-border);
+}
+.badge.tier-2 {
+  background: var(--tier2-bg);
+  color: var(--tier2);
+  border: 1px solid var(--tier2-border);
+}
+.badge.tier-3 {
+  background: var(--tier3-bg);
+  color: var(--tier3);
+  border: 1px solid var(--tier3-border);
+}
+
+.badge.diff-easy {
+  background: var(--diff-easy-bg);
+  color: var(--diff-easy);
+  border: 1px solid var(--diff-easy-border);
+}
+.badge.diff-med {
+  background: var(--diff-med-bg);
+  color: var(--diff-med);
+  border: 1px solid var(--diff-med-border);
+}
+.badge.diff-hard {
+  background: var(--diff-hard-bg);
+  color: var(--diff-hard);
+  border: 1px solid var(--diff-hard-border);
+}
+
+/* EXAMINER HOOK BOX */
+.examiner-hook-box {
+  background: var(--surface-raised);
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.examiner-hook-label {
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #d97706;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.examiner-hook-text {
+  color: var(--text-main);
+  line-height: 1.45;
+}
+
+/* SKELETON COLLAPSIBLE */
+.skeleton-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  transition: all 0.15s;
+}
+.skeleton-toggle:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-border);
+}
+
+.skeleton-body {
+  display: none;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.skeleton-body.open {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skel-section-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.code-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.825rem;
+  overflow-x: auto;
+  color: var(--text-main);
+}
+
+.skel-headings-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.skel-headings-list li {
+  position: relative;
+  padding-left: 20px;
+}
+.skel-headings-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 4px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+.empty-state h3 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+/* FLOATING FOOTER BAR */
+.floating-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 12px 24px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.9rem;
+}
+
+.footer-btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.15s;
+}
+.action-btn:hover {
+  opacity: 0.9;
+}
+
+.action-btn.secondary {
+  background: var(--surface-raised);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="header-title">
+      <h1>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Deep Learning (KG23ACM401)
+      </h1>
+      <p>B. Tech IV-I | Complete Semester Exam Question Bank Navigator & Mastery Roadmap</p>
+    </div>
+    <div class="header-actions">
+      <a href="DEEP_LEARNING_COMPLETE_QB.html" class="theme-toggle-btn" target="_blank" title="Open full answers document">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Full Answers File
+      </a>
+      <button class="theme-toggle-btn" id="themeToggleBtn">
+        <span id="themeIcon">🌙</span> Dark Mode
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="main-container">
+
+  <!-- HERO TRACKER -->
+  <section class="hero-tracker">
+    <div class="hero-info">
+      <h2>Target: 50+ / 60 in the End-Sem</h2>
+      <p>You have all 40 verified solutions. Rote memorization fails; mastery requires understanding the <strong>Examiner Hook</strong>, the <strong>Diagram</strong>, and the <strong>Equations</strong>.</p>
+      <div class="stat-pills">
+        <div class="stat-pill">Total: <strong>40 Questions</strong></div>
+        <div class="stat-pill t1">Must-Win: <strong>16 Questions</strong></div>
+        <div class="stat-pill easy">🟢 Easy: <strong id="cntEasy">0</strong></div>
+        <div class="stat-pill med">🟡 Medium: <strong id="cntMed">0</strong></div>
+        <div class="stat-pill hard">🔴 Hard: <strong id="cntHard">0</strong></div>
+      </div>
+    </div>
+    <div class="tracker-card">
+      <div class="tracker-header">
+        <span class="tracker-title">Exam Mastery Index</span>
+        <span class="tracker-score" id="masteryPercent">0%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+      <div class="tracker-sub">
+        <span>Mastered: <strong id="masteredCount">0</strong> / 40 questions</span>
+        <span>Est. Score: <strong id="projectedMarks">0</strong> / 60</span>
+      </div>
+      <div class="tracker-btn-row">
+        <button class="tracker-btn" id="btnSelectAll">Mark All Tier 1</button>
+        <button class="tracker-btn" id="btnResetProgress">Reset Progress</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-PHASE STUDY ROADMAP -->
+  <section class="strategy-box">
+    <div class="strategy-title" id="strategyToggle">
+      <span>🧭 The 3-Phase Mastery Execution Protocol</span>
+      <span style="font-size:0.85rem; color:var(--primary); font-weight:600;">How to study when you missed lectures ▾</span>
+    </div>
+    <div class="strategy-content" id="strategyContent">
+      <div class="phase-card">
+        <span class="phase-tag phase-1">Phase 1: Quick Score (Lock ~25 Marks)</span>
+        <div class="phase-title">Descriptive & Architectural Foundations</div>
+        <div class="phase-desc">Knock out all 🟢 <strong>Easy Tier-1 questions</strong> across Units 1, 3, 5 (CNN layers, Pooling, Activation functions, Practical methodology, Performance metrics). High marks with zero math friction.</div>
+      </div>
+      <div class="phase-card">
+        <span class="phase-tag phase-2">Phase 2: Architectural Core (Lock ~20 Marks)</span>
+        <div class="phase-title">Sequence & Optimization Dynamics</div>
+        <div class="phase-desc">Master all 🟡 <strong>Medium Tier-1 questions</strong> across Units 2 & 4 (Dropout ensemble mechanism, Adam optimizer progression, RNN graph unfolding, Seq2Seq translation).</div>
+      </div>
+      <div class="phase-card">
+        <span class="phase-tag phase-3">Phase 3: The 10-Mark Giants (Lock Top Bracket)</span>
+        <div class="phase-title">High-Yield Mathematical Derivations</div>
+        <div class="phase-desc">Conquer the 🔴 <strong>Hard Tier-1 derivations</strong> (Backpropagation vector calculus, LSTM Constant Error Carousel, XOR feature space transformation, Infinitely strong prior).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP 5 CONCEPTUAL PEAKS ACCORDION -->
+  <section class="peaks-box">
+    <div class="peaks-title" id="peaksToggle">
+      <span>⚡ Top 5 Conceptually Hardest Questions (The Examiner Landmines)</span>
+      <span style="font-size:0.85rem; font-weight:600;">Click to reveal 'Aha!' insights ▾</span>
+    </div>
+    <div class="peaks-grid" id="peaksGrid" style="display:none;">
+      
+      <div class="peak-item" onclick="this.classList.toggle('open')">
+        <div class="peak-header">
+          <span>#1. Unit 3 (Q4): Convolution & Pooling as an "Infinitely Strong Prior"</span>
+          <span class="badge diff-hard">Hard</span>
+        </div>
+        <div class="peak-details">
+          <strong>The Trap:</strong> Saying convolution is just sliding a filter and pooling takes the maximum.<br>
+          <strong>The Aha! Insight:</strong> In Bayesian probability, an infinitely strong prior gives <em>zero probability</em> to certain functions. By choosing a CNN over an MLP, we permanently forbid long-range direct connections (weights strictly 0) and force weights across space to be identical (parameter sharing). It fails on position-sensitive tasks (like face landmarking where eyes are always at the top).
+        </div>
+      </div>
+
+      <div class="peak-item" onclick="this.classList.toggle('open')">
+        <div class="peak-header">
+          <span>#2. Unit 4 (Q7): LSTM Mathematical Solution to Vanishing Gradient (CEC)</span>
+          <span class="badge diff-hard">Hard</span>
+        </div>
+        <div class="peak-details">
+          <strong>The Trap:</strong> Memorizing gate names without writing the Jacobian.<br>
+          <strong>The Aha! Insight:</strong> In standard RNNs, gradients multiply repeatedly by $W_{hh}$, causing exponential decay ($0.9^{50} \approx 0$). In LSTM, the backpropagation flows along the Cell State $C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t$. The derivative is $\frac{\partial C_t}{\partial C_{t-1}} = f_t$. Gradients flow backward by <em>simple addition</em> without repeated matrix multiplication!
+        </div>
+      </div>
+
+      <div class="peak-item" onclick="this.classList.toggle('open')">
+        <div class="peak-header">
+          <span>#3. Unit 2 (Q9): Why $L_1$ Regularization Forces Exact Zero (Sparsity) vs $L_2$</span>
+          <span class="badge diff-hard">Hard</span>
+        </div>
+        <div class="peak-details">
+          <strong>The Trap:</strong> Saying "L1 is Lasso and L2 is Ridge" without the math or geometry.<br>
+          <strong>The Aha! Insight:</strong> The derivative of $L_2$ is $\alpha w$. As $w \to 0$, the penalty force also shrinks to 0 (it never reaches pure 0). The derivative of $L_1$ is $\alpha \cdot \text{sign}(w)$, which is a <em>constant push</em> that kicks small weights straight into absolute 0. Geometrically, the $L_1$ constraint region is a diamond with sharp corners on the coordinate axes.
+        </div>
+      </div>
+
+      <div class="peak-item" onclick="this.classList.toggle('open')">
+        <div class="peak-header">
+          <span>#4. Unit 4 (Q11): Echo State Networks (ESNs) & Spectral Radius</span>
+          <span class="badge diff-hard">Hard</span>
+        </div>
+        <div class="peak-details">
+          <strong>The Trap:</strong> Assuming recurrent weights must be trained with backpropagation.<br>
+          <strong>The Aha! Insight:</strong> ESNs freeze a massive, random recurrent reservoir and <em>never</em> backpropagate through it! Only the linear output layer is trained using one-shot linear regression. For the network to have a fading memory ("Echo State Property"), the spectral radius $\rho(W_{res})$ must be $< 1.0$ so internal echoes die out over time rather than exploding into chaos.
+        </div>
+      </div>
+
+      <div class="peak-item" onclick="this.classList.toggle('open')">
+        <div class="peak-header">
+          <span>#5. Unit 1 (Q5): Vector-Matrix Backpropagation Derivation</span>
+          <span class="badge diff-hard">Hard</span>
+        </div>
+        <div class="peak-details">
+          <strong>The Trap:</strong> Writing 1D scalar chain rule and losing 6 marks for missing layer matrices.<br>
+          <strong>The Aha! Insight:</strong> Backpropagation is simply two matrix equations repeated backwards: (1) Error Vector: $\delta^{(l)} = ((W^{(l+1)})^T \delta^{(l+1)}) \odot \sigma'(z^{(l)})$, and (2) Weight Gradient: $\frac{\partial J}{\partial W^{(l)}} = \delta^{(l)} (a^{(l-1)})^T$.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTROLS & FILTERS BAR -->
+  <section class="controls-container">
+    <div class="search-row">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by topic, keyword, or concept (e.g. LSTM, Adam, XOR, Dropout)...">
+      </div>
+      <select id="sortSelect" class="sort-select">
+        <option value="diff-asc">Difficulty: Easiest to Hardest</option>
+        <option value="diff-desc">Difficulty: Hardest to Easiest</option>
+        <option value="priority-asc">Priority: Must-Win (Tier 1) First</option>
+        <option value="marks-desc">Marks: 10-Mark Questions First</option>
+        <option value="unit-asc">Unit Order (Unit 1 to 5)</option>
+      </select>
+    </div>
+
+    <!-- Unit Pills -->
+    <div class="filters-row">
+      <span class="filter-group-label">Unit:</span>
+      <button class="filter-pill active" data-filter="unit" data-val="all">All Units</button>
+      <button class="filter-pill" data-filter="unit" data-val="1">Unit 1 (ML Basics)</button>
+      <button class="filter-pill" data-filter="unit" data-val="2">Unit 2 (Opt & Reg)</button>
+      <button class="filter-pill" data-filter="unit" data-val="3">Unit 3 (CNNs)</button>
+      <button class="filter-pill" data-filter="unit" data-val="4">Unit 4 (RNN / LSTM)</button>
+      <button class="filter-pill" data-filter="unit" data-val="5">Unit 5 (Practical / App)</button>
+    </div>
+
+    <!-- Priority & Difficulty Pills -->
+    <div class="filters-row">
+      <span class="filter-group-label">Priority:</span>
+      <button class="filter-pill active" data-filter="priority" data-val="all">All</button>
+      <button class="filter-pill" data-filter="priority" data-val="Tier 1 (Must-Win)">⭐ Must-Win (Tier 1)</button>
+      <button class="filter-pill" data-filter="priority" data-val="Tier 2 (Core)">⚡ Core (Tier 2)</button>
+      <button class="filter-pill" data-filter="priority" data-val="Tier 3 (Edge)">🔹 Edge (Tier 3)</button>
+
+      <span class="filter-group-label" style="margin-left: 12px;">Difficulty:</span>
+      <button class="filter-pill active" data-filter="diff" data-val="all">All</button>
+      <button class="filter-pill" data-filter="diff" data-val="Easy">🟢 Easy</button>
+      <button class="filter-pill" data-filter="diff" data-val="Medium">🟡 Medium</button>
+      <button class="filter-pill" data-filter="diff" data-val="Hard">🔴 Hard</button>
+
+      <span class="filter-group-label" style="margin-left: 12px;">Marks:</span>
+      <button class="filter-pill active" data-filter="marks" data-val="all">All</button>
+      <button class="filter-pill" data-filter="marks" data-val="10">10 Marks</button>
+      <button class="filter-pill" data-filter="marks" data-val="5">5 Marks</button>
+    </div>
+  </section>
+
+  <!-- QUESTIONS LIST -->
+  <section class="questions-grid" id="questionsContainer">
+    <!-- Populated dynamically by JavaScript -->
+  </section>
+
+  <div id="emptyState" class="empty-state" style="display: none;">
+    <h3>No matching questions found</h3>
+    <p>Try clearing your search query or switching your active filters.</p>
+  </div>
+
+</main>
+
+<div class="floating-footer">
+  <div class="footer-inner">
+    <div class="footer-stats">
+      <span>Mastery: <strong id="footerPercent">0%</strong></span>
+      <span>•</span>
+      <span>Showing: <strong id="visibleCount">40</strong> of 40 Questions</span>
+    </div>
+    <div class="footer-btn-group">
+      <a href="DEEP_LEARNING_COMPLETE_QB.html" class="action-btn secondary" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Open Complete Answers File
+      </a>
+      <button class="action-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑ Top of Page
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+const rawQuestions = [
+  {
+    "id": "u1_q7",
+    "unit": 1,
+    "unit_title": "Unit 1: ML Basics & Deep Feedforward Networks",
+    "q_num": "Q7",
+    "title": "Compare supervised and unsupervised learning algorithms with suitable examples and applications.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "6-parameter contrast table (Data labels, Objective, Loss functions, Algorithms, Evaluation, Real-world use-cases).",
+    "intuition": "Supervised learning learns a mapping from inputs to known targets (teacher present). Unsupervised learning discovers latent structure, clusters, or probability distributions without target labels (self-discovery).",
+    "diagram": "Side-by-side block diagram: Input -> Model -> Loss vs Ground Truth (Supervised) vs Input -> Model -> Latent Space/Clusters (Unsupervised).",
+    "formulas": "Supervised: min_theta sum L(f(x_i; theta), y_i)  |  Unsupervised: min_theta E_{x ~ p_data} [-log p_model(x; theta)] or argmin sum ||x_i - mu_{c_i}||^2",
+    "headings": [
+      "1. Conceptual Definitions & Mathematical Objectives",
+      "2. Exhaustive Comparison Matrix (6 Dimensions)",
+      "3. Supervised Canonical Workflows & Algorithms",
+      "4. Unsupervised Canonical Workflows & Emerging Hybrids (Self-Supervised)"
+    ]
+  },
+  {
+    "id": "u1_q2",
+    "unit": 1,
+    "unit_title": "Unit 1: ML Basics & Deep Feedforward Networks",
+    "q_num": "Q2",
+    "title": "Explain the role of hyperparameters and validation sets in deep learning model development.",
+    "marks": 5,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Train/Val/Test split schematic (e.g. 70/15/15) + Validation loss curve showing the exact epoch where overfitting begins.",
+    "intuition": "Parameters are learned by SGD (weights/biases); hyperparameters are knobs chosen by the engineer before training (learning rate, layer depth). Validation set acts as an unbiased proxy for test data to tune these knobs without data leakage.",
+    "diagram": "Data Split Bar (Train / Validation / Test) + Loss Curves Plot (Training Loss strictly decreasing vs Validation Loss U-curve showing Early Stopping point).",
+    "formulas": "theta* = argmin_theta L_train(theta; lambda)  |  lambda* = argmin_lambda L_val(theta*(lambda); lambda)",
+    "headings": [
+      "1. Parameters vs Hyperparameters Distinction",
+      "2. Data Partitioning Triad (Train / Val / Test)",
+      "3. Validation Loss Dynamics & Generalization Gap",
+      "4. Hyperparameter Search Paradigms"
+    ]
+  },
+  {
+    "id": "u1_q4",
+    "unit": 1,
+    "unit_title": "Unit 1: ML Basics & Deep Feedforward Networks",
+    "q_num": "Q4",
+    "title": "Analyze the role of hidden units and activation functions in neural networks.",
+    "marks": 5,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Formulas & 2D function graphs for ReLU, Sigmoid, Tanh + explanation of Vanishing Gradients vs Dying ReLU problem.",
+    "intuition": "Without non-linear activations, stacking 100 linear layers collapses into a single linear layer (W2*W1*x = W_combined*x). Activations bend and fold space to fit complex non-linear boundaries.",
+    "diagram": "Coordinate plots of Sigmoid (S-shape between 0 and 1), Tanh (-1 to 1), ReLU (0 for x<0, linear for x>=0), and Leaky ReLU (small slope for x<0).",
+    "formulas": "ReLU: f(z) = max(0, z)  |  Sigmoid: sigma(z) = 1/(1 + e^{-z})  |  Tanh: tanh(z) = (e^z - e^{-z})/(e^z + e^{-z})  |  Leaky ReLU: max(alpha*z, z)",
+    "headings": [
+      "1. Necessity of Non-Linearity in Deep Architectures",
+      "2. Classical Saturating Activations (Sigmoid & Tanh)",
+      "3. Rectified Linear Family & Dying ReLU Mitigation",
+      "4. Selection Guidelines Matrix"
+    ]
+  },
+  {
+    "id": "u1_q1",
+    "unit": 1,
+    "unit_title": "Unit 1: ML Basics & Deep Feedforward Networks",
+    "q_num": "Q1",
+    "title": "Define model capacity in machine learning.",
+    "marks": 5,
+    "blooms": "K1 (Remembering)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "The U-shaped Capacity vs Error curve + VC dimension definition + Representational vs Effective capacity contrast.",
+    "intuition": "Capacity is the flexibility of a model to approximate diverse functions. Too little capacity = underfitting (high bias). Too much capacity = overfitting (high variance).",
+    "diagram": "Error vs Capacity graph with Underfitting zone on left, Overfitting zone on right, Training error falling to 0, Generalization error forming a U-shape.",
+    "formulas": "VC-Dimension bound: E_test <= E_train + O(sqrt((VC * log(m/VC) - log(delta)) / m))",
+    "headings": [
+      "1. Formal Definition & Hypothesis Space",
+      "2. Architectural Determinants of Capacity",
+      "3. VC Dimension & Statistical Capacity Bounds",
+      "4. Capacity vs Bias-Variance Trade-Off Curve"
+    ]
+  },
+  {
+    "id": "u1_q3",
+    "unit": 1,
+    "unit_title": "Unit 1: ML Basics & Deep Feedforward Networks",
+    "q_num": "Q3",
+    "title": "Illustrate the architecture and learning mechanism of Deep Feedforward Networks.",
+    "marks": 5,
+    "blooms": "K3 (Applying)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Forward propagation equations a^(l) = sigma(W^(l) a^(l-1) + b^(l)) + Loss formulation + Gradient Descent parameter update loop.",
+    "intuition": "A feedforward network is a directed acyclic graph that maps input x to output y by composing functions f(x) = f3(f2(f1(x))). Information flows forward without feedback loops.",
+    "diagram": "Layered node diagram showing Input layer x -> Hidden Layer h^(1) -> Hidden Layer h^(2) -> Output layer y_hat with weight matrices W^(1), W^(2), W^(3).",
+    "formulas": "z^(l) = W^(l) a^(l-1) + b^(l),  a^(l) = g^(l)(z^(l))  |  Update: W^(l) <- W^(l) - eta * (dJ / dW^(l))",
+    "headings": [
+      "1. Architectural Topology & Non-Recurrent Flow",
+      "2. Mathematical Formulation of Forward Propagation",
+      "3. Objective Loss Functions",
+      "4. Optimization Loop via Gradient Descent"
+    ]
+  },
+  {
+    "id": "u1_q6",
+    "unit": 1,
+    "unit_title": "Unit 1: ML Basics & Deep Feedforward Networks",
+    "q_num": "Q6",
+    "title": "Analyze the architecture of a Deep Feedforward Neural Network.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Universal Approximation Theorem statement + Depth vs Width mathematical scaling (exponential efficiency of depth).",
+    "intuition": "A single wide hidden layer can theoretically represent any continuous function, but it requires an exponential number of neurons. Deep architectures reuse sub-features exponentially more efficiently.",
+    "diagram": "Comparison of Shallow & Wide Network (exponential units) vs Deep & Narrow Network (compositional feature hierarchy: edges -> parts -> objects).",
+    "formulas": "Universal Approximation: |F(x) - sum v_i sigma(w_i^T x + b_i)| < epsilon  |  Linear regions: O((width/dim)^{depth*dim})",
+    "headings": [
+      "1. Structural Composition of Deep Feedforward Networks",
+      "2. Universal Approximation Theorem & Limitations",
+      "3. Architectural Trade-offs: Depth vs Width",
+      "4. Output Layer Units & Cost Function Pairings"
+    ]
+  },
+  {
+    "id": "u1_q8",
+    "unit": 1,
+    "unit_title": "Unit 1: ML Basics & Deep Feedforward Networks",
+    "q_num": "Q8",
+    "title": "Analyze how a neural network learns the XOR problem using gradient-based learning.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "2D XOR coordinate space plot showing linear inseparability + coordinate transformation via hidden layer with ReLU mapping to linearly separable space.",
+    "intuition": "A single perceptron can only draw a straight line. In XOR, (0,0) and (1,1) are 0, while (0,1) and (1,0) are 1. You cannot separate them with one line. A hidden layer transforms the points into a new space where a line CAN separate them.",
+    "diagram": "Side-by-side: (1) Original x1-x2 input plane with diagonal positive/negative classes (cannot separate). (2) Transformed h1-h2 feature plane where points fold so a linear hyperplane cleanly separates them.",
+    "formulas": "x in {[0,0], [0,1], [1,0], [1,1]};  h = ReLU(W^T x + c) with W = [[1,1],[1,1]], c = [0, -1]^T  => h transforms points to linearly separable space.",
+    "headings": [
+      "1. The XOR Dilemma & Historic Perceptron Failure",
+      "2. Mathematical Proof of Linear Inseparability",
+      "3. Architectural Solution: 2-Layer Feedforward Network with ReLU",
+      "4. Step-by-Step Coordinate Transformation & Gradient Verification"
+    ]
+  },
+  {
+    "id": "u1_q5",
+    "unit": 1,
+    "unit_title": "Unit 1: ML Basics & Deep Feedforward Networks",
+    "q_num": "Q5",
+    "title": "Derive the Back-Propagation algorithm and explain its application in training a multilayer neural network.",
+    "marks": 10,
+    "blooms": "K3 (Applying)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "Rigorous vector-matrix derivation: Error vector delta^(l) equation with transpose of W^(l+1) and Hadamard product, followed by weight gradient delta^(l) * (a^(l-1))^T.",
+    "intuition": "Backpropagation is dynamic programming applied to the chain rule of calculus. Instead of computing derivatives from scratch for every weight, we pass error signals backwards layer-by-layer.",
+    "diagram": "Forward and backward computational flow across layers (l-1), (l), and (l+1) showing forward activations a^(l) and backward error message passing delta^(l).",
+    "formulas": "Output Error: delta^(L) = nabla_a J odot sigma'(z^(L))  |  Hidden Error: delta^(l) = ((W^(l+1))^T delta^(l+1)) odot sigma'(z^(l))  |  Weight Gradient: dJ/dW^(l) = delta^(l) (a^(l-1))^T",
+    "headings": [
+      "1. Theoretical Foundation & Computational Graphs",
+      "2. Vector-Matrix Mathematical Derivation (Step-by-Step)",
+      "3. The Complete Backpropagation Algorithm Pseudocode",
+      "4. Practical Considerations: Computational & Memory Complexity"
+    ]
+  },
+  {
+    "id": "u2_q11",
+    "unit": 2,
+    "unit_title": "Unit 2: Regularization & Optimization for Deep Learning",
+    "q_num": "Q11",
+    "title": "Analyze the importance of Early Stopping during model training.",
+    "marks": 5,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Validation error curve showing minimum, patience window, checkpointing best weights, and mathematical equivalence to L2 weight decay.",
+    "intuition": "As training runs, validation error drops, hits a bottom, and starts rising as the model memorizes noise. Early stopping halts training at the bottom and saves that snapshot.",
+    "diagram": "Epochs vs Loss graph: Training loss descends continuously; Validation loss forms a convex bowl. Optimal stopping point is marked at lowest validation error before patience threshold.",
+    "formulas": "Stop if: val_loss(t) > min_{k < t} val_loss(k) for P consecutive evaluation intervals. Equivalent capacity: w_t approx (I - (I - epsilon H)^t) w*.",
+    "headings": [
+      "1. Conceptual Motivation & Mechanics",
+      "2. Algorithmic Workflow & The 'Patience' Hyperparameter",
+      "3. Theoretical Equivalence to L2 Regularization",
+      "4. Advantages & Practical Trade-offs"
+    ]
+  },
+  {
+    "id": "u2_q12",
+    "unit": 2,
+    "unit_title": "Unit 2: Regularization & Optimization for Deep Learning",
+    "q_num": "Q12",
+    "title": "Illustrate the concept of Dataset Augmentation for image datasets.",
+    "marks": 5,
+    "blooms": "K3 (Applying)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Diagram of affine & photometric transformations (flips, crops, color jitter, cutout) + concept of data manifold invariance.",
+    "intuition": "The best way to prevent overfitting is more data. If collecting data is hard, generate synthetic data by applying label-preserving transformations (a cat rotated 10 degrees is still a cat).",
+    "diagram": "Original image in center radiating arrows to: Horizontal Flip, Random Crop, Rotation (+-15 deg), Color Jitter, Cutout / Mixup.",
+    "formulas": "Manifold assumption: x_aug = T(x) such that P(y | x_aug) = P(y | x). Mixup: x_tilde = lambda*x_i + (1-lambda)*x_j; y_tilde = lambda*y_i + (1-lambda)*y_j.",
+    "headings": [
+      "1. Principle of Invariance & The Data Manifold",
+      "2. Common Image Augmentation Modalities",
+      "3. Advanced Synthetic Techniques (CutMix & Mixup)",
+      "4. Safety Caveats (When Augmentation Alters Labels)"
+    ]
+  },
+  {
+    "id": "u2_q16",
+    "unit": 2,
+    "unit_title": "Unit 2: Regularization & Optimization for Deep Learning",
+    "q_num": "Q16",
+    "title": "Evaluate the influence of regularization techniques on model generalization.",
+    "marks": 10,
+    "blooms": "K5 (Evaluating)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Comprehensive 5-way comparative table of L1, L2, Dropout, Early Stopping, and Augmentation (Mechanism, Hyperparameter, Overhead, Impact on Weights).",
+    "intuition": "Regularization is any modification made to a learning algorithm intended to reduce generalization error without increasing training error.",
+    "diagram": "Generalization Gap Schematic: (Test Error - Training Error) narrowing under increasing regularization strength lambda until underfitting occurs.",
+    "formulas": "Regularized Loss: J_reg(theta) = J_task(theta) + lambda * Omega(theta). L2: Omega = 1/2 ||w||_2^2; L1: Omega = ||w||_1.",
+    "headings": [
+      "1. The Generalization Objective & The Regularization Spectrum",
+      "2. Comprehensive Taxonomy of Regularization Methods",
+      "3. Mathematical & Empirical Comparison Matrix",
+      "4. Practical Selection Guidelines for Deep Architectures"
+    ]
+  },
+  {
+    "id": "u2_q10",
+    "unit": 2,
+    "unit_title": "Unit 2: Regularization & Optimization for Deep Learning",
+    "q_num": "Q10",
+    "title": "Explain the working principle of Dropout in neural networks.",
+    "marks": 5,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Sub-network ensemble interpretation (2^N thinned models) + Inverted Dropout formula y = (m odot x) / (1-p) during training vs identity at test time.",
+    "intuition": "During each training step, randomly zero out each neuron with probability p. This forces neurons to learn robust features without co-adapting with specific neighbor neurons.",
+    "diagram": "Standard Neural Net (all neurons connected) vs Dropout Net (random neurons crossed out with dashed inactive connections) + Inference weight scaling.",
+    "formulas": "Training: r_j ~ Bernoulli(1 - p),  h_tilde = (r odot h) / (1 - p).  Testing: h_eval = h (No scaling needed at inference with inverted dropout).",
+    "headings": [
+      "1. Conceptual Overview: Co-adaptation Prevention",
+      "2. Mathematical Formulation & Inverted Dropout",
+      "3. Ensemble / Bagging Interpretation (2^N Sub-networks)",
+      "4. Training vs Inference Protocol"
+    ]
+  },
+  {
+    "id": "u2_q13",
+    "unit": 2,
+    "unit_title": "Unit 2: Regularization & Optimization for Deep Learning",
+    "q_num": "Q13",
+    "title": "Analyze different Parameter Initialization Strategies used in deep learning.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Symmetry breaking failure of all-zeros initialization + Xavier/Glorot variance formula for Tanh vs He/Kaiming formula for ReLU.",
+    "intuition": "If weights start too small, signals and gradients vanish to 0. If too large, signals explode. Proper initialization keeps the variance of activations and gradients equal across all layers.",
+    "diagram": "Signal Variance flow across 10 layers: Vanishing (Var -> 0), Exploding (Var -> inf), and Stable (Xavier/He maintaining Var = 1.0).",
+    "formulas": "Xavier/Glorot: W ~ N(0, 2/(n_in + n_out))  |  He/Kaiming: W ~ N(0, 2/n_in)  |  Variance balance condition: Var(a^(l)) = Var(a^(l-1)).",
+    "headings": [
+      "1. The Criticality of Proper Initialization",
+      "2. Failure Modes: Zero Initialization & Symmetry Trap",
+      "3. Xavier/Glorot Initialization for Saturating Activations",
+      "4. He/Kaiming Initialization for Rectified Activations"
+    ]
+  },
+  {
+    "id": "u2_q15",
+    "unit": 2,
+    "unit_title": "Unit 2: Regularization & Optimization for Deep Learning",
+    "q_num": "Q15",
+    "title": "Explain different optimization algorithms used for training deep learning models.",
+    "marks": 10,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Evolution trajectory: SGD -> Momentum (velocity buffer) -> Nesterov -> AdaGrad -> RMSProp -> Adam, with update equations for each.",
+    "intuition": "SGD takes noisy steps and oscillates in narrow ravines. Momentum adds inertia like a heavy ball rolling downhill. RMSProp scales step size per-parameter. Adam combines both.",
+    "diagram": "Optimization trajectories on ravines/contour plots: SGD oscillating wildly, Momentum smoothing oscillations, RMSProp adapting to curvature, Adam converging fastest.",
+    "formulas": "SGD: w <- w - eta*g  |  Momentum: v <- beta*v + (1-beta)*g, w <- w - eta*v  |  RMSProp: s <- gamma*s + (1-gamma)*g^2, w <- w - eta*g / sqrt(s + eps)",
+    "headings": [
+      "1. The Optimization Landscape & Challenges (Saddle points, Ill-conditioning)",
+      "2. First-Order Stochastic Methods (SGD & Momentum)",
+      "3. Adaptive Learning Rate Methods (AdaGrad & RMSProp)",
+      "4. Combined Frameworks (Adam) & Comparison Summary"
+    ]
+  },
+  {
+    "id": "u2_q9",
+    "unit": 2,
+    "unit_title": "Unit 2: Regularization & Optimization for Deep Learning",
+    "q_num": "Q9",
+    "title": "Analyze the role of parameter norm penalties in regularization.",
+    "marks": 5,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "Geometric contour plot: Circular loss contours intersecting L1 diamond at coordinate corners (sparsity) vs L2 circle (smooth shrinkage) + derivative comparison.",
+    "intuition": "L2 pulls weights down proportional to their size (gentle decay). L1 pulls weights down by a constant force, kicking tiny weights all the way to absolute zero (feature selection).",
+    "diagram": "Side-by-side constraint regions: L1 diamond |w1| + |w2| <= C with sharp corners hitting the axis first; L2 circle w1^2 + w2^2 <= C touching tangentially off-axis.",
+    "formulas": "L2 gradient: dJ/dw = g + alpha*w (shrinkage)  |  L1 gradient: dJ/dw = g + alpha*sign(w) (constant push to zero). L1 threshold: w_i = sign(w_i*) max(0, |w_i*| - alpha/H_{ii}).",
+    "headings": [
+      "1. Mathematical Formulation of Norm Penalties",
+      "2. L2 Regularization (Weight Decay) Analytical Solution",
+      "3. L1 Regularization & Mathematical Proof of Sparsity",
+      "4. Geometric Comparison of Constrained Optimization"
+    ]
+  },
+  {
+    "id": "u2_q14",
+    "unit": 2,
+    "unit_title": "Unit 2: Regularization & Optimization for Deep Learning",
+    "q_num": "Q14",
+    "title": "Evaluate the effectiveness of Adaptive Learning Rate Algorithms.",
+    "marks": 10,
+    "blooms": "K5 (Evaluating)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "Complete Adam update equations + mathematical proof of bias correction (unbiasing m_t and v_t via geometric series division by 1 - beta^t).",
+    "intuition": "Standard learning rate treats all weights equally. But frequent features need small updates, while rare features need big updates. Adaptive algorithms track per-parameter running gradients.",
+    "diagram": "Algorithmic flowchart of Adam computing gradient g_t -> First moment m_t -> Second moment v_t -> Bias correction -> Parameter update.",
+    "formulas": "m_t = beta_1 m_{t-1} + (1-beta_1) g_t,  v_t = beta_2 v_{t-1} + (1-beta_2) g_t^2  |  Bias correction: m_hat = m_t / (1 - beta_1^t), v_hat = v_t / (1 - beta_2^t)  |  w <- w - eta * m_hat / (sqrt(v_hat) + eps)",
+    "headings": [
+      "1. Shortcomings of Global Static Learning Rates",
+      "2. AdaGrad & RMSProp Architectural Foundations",
+      "3. The Adam Optimizer: Adaptive Moment Estimation",
+      "4. Mathematical Derivation of Bias Corrections"
+    ]
+  },
+  {
+    "id": "u3_q18",
+    "unit": 3,
+    "unit_title": "Unit 3: Convolutional Neural Networks (CNNs)",
+    "q_num": "Q18 (Mid-I)",
+    "title": "Analyze the role of Pooling in convolutional networks.",
+    "marks": 5,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "2x2 Max Pooling and Average Pooling numerical matrix calculation + translation invariance diagram + spatial downsampling formula.",
+    "intuition": "Pooling summarizes a neighborhood of pixels by taking the maximum or average value. It reduces tensor dimensions, saves computation, and makes the model invariant to small shifts.",
+    "diagram": "4x4 grid split into four 2x2 quadrants reducing to a 2x2 output via Max Pooling (picking highest value in each color quadrant).",
+    "formulas": "Max Pooling: y_{i,j} = max_{p,q in Omega} x_{i*S + p, j*S + q}  |  Dimension: Output = floor((Input - Pool_size)/Stride) + 1",
+    "headings": [
+      "1. The Pooling Operation & Mathematical Formulation",
+      "2. Max Pooling vs Average Pooling",
+      "3. Invariance to Local Translations & Structural Benefits",
+      "4. Modern Trends: Strided Convolutions vs Pooling"
+    ]
+  },
+  {
+    "id": "u3_q1_ii",
+    "unit": 3,
+    "unit_title": "Unit 3: Convolutional Neural Networks (CNNs)",
+    "q_num": "Q1 (Mid-II)",
+    "title": "State the purpose of Feature Maps in Convolutional Neural Networks (CNNs).",
+    "marks": 5,
+    "blooms": "K1 (Remembering)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Hierarchical feature extraction diagram: Low-level (edges/ridges) -> Mid-level (corners/textures) -> High-level (object parts/faces).",
+    "intuition": "A feature map is a 2D slice showing where and how strongly a specific pattern (like a vertical line or an eye) was detected across the entire image.",
+    "diagram": "Hierarchy diagram: Layer 1 Feature Maps (Gabor-like edges) -> Layer 2 (Textures/Shapes) -> Layer 3 (Object components like wheels or eyes).",
+    "formulas": "Feature Map Activation: Y_{i,j,k} = sigma( sum_{c} sum_{p} sum_{q} X_{i+p, j+q, c} * K_{p, q, c, k} + b_k )",
+    "headings": [
+      "1. Definition & Formation of Feature Maps",
+      "2. Hierarchical Feature Representation Paradigm",
+      "3. Mathematical Computation across Channels",
+      "4. Interpretability & Visualization Techniques"
+    ]
+  },
+  {
+    "id": "u3_q19",
+    "unit": 3,
+    "unit_title": "Unit 3: Convolutional Neural Networks (CNNs)",
+    "q_num": "Q19 (Mid-I)",
+    "title": "Describe the main layers of a CNN and explain the role of convolution, activation, and pooling layers.",
+    "marks": 10,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Full end-to-end CNN pipeline diagram (Input -> Conv -> ReLU -> Pool -> Conv -> ReLU -> Pool -> Flatten -> FC -> Softmax) + dimension formula O = floor((W - K + 2P)/S) + 1.",
+    "intuition": "A CNN processes raw images through feature extractors (Conv + Activation + Pool), flattens the resulting spatial maps, and classifies them using dense layers (Fully Connected).",
+    "diagram": "Complete 3D block pipeline showing input volume 32x32x3 -> Conv filters -> 28x28x6 -> MaxPool 14x14x6 -> Conv 10x10x16 -> MaxPool 5x5x16 -> Dense 120 -> Output 10.",
+    "formulas": "Output Spatial Dim: W_{out} = floor((W_{in} - K + 2P)/S) + 1  |  FC: y = softmax(W_fc * a_{flat} + b_fc)",
+    "headings": [
+      "1. Architectural Pipeline & Layer Taxonomy",
+      "2. Convolution Layer: Spatial Feature Filtering",
+      "3. Non-Linear Activation & Spatial Pooling Layers",
+      "4. Dense (Fully-Connected) & Softmax Classification Heads"
+    ]
+  },
+  {
+    "id": "u3_q17",
+    "unit": 3,
+    "unit_title": "Unit 3: Convolutional Neural Networks (CNNs)",
+    "q_num": "Q17 (Mid-I)",
+    "title": "State the characteristics of the convolution operation in CNNs.",
+    "marks": 5,
+    "blooms": "K1 (Remembering)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "3 explicit concept diagrams: (1) Sparse Interactions (small kernel vs full image), (2) Parameter Sharing (same kernel sliding), (3) Equivariance to Translation (f(g(x)) = g(f(x))).",
+    "intuition": "Instead of every input connecting to every output, convolution uses small kernels (sparse), reuses the exact same weights everywhere (sharing), meaning shifted inputs produce shifted outputs (equivariance).",
+    "diagram": "3 sub-diagrams: (a) Sparse connections showing receptive field; (b) Parameter sharing highlighting identical color-coded weights across image; (c) Equivariance block flow.",
+    "formulas": "Equivariance property: f(T_g(x)) = T_g'(f(x))  |  Memory savings: O(m * k) parameters instead of O(m * n).",
+    "headings": [
+      "1. Motivation Beyond Fully Connected Layers",
+      "2. Sparse Interactions (Sparse Connectivity)",
+      "3. Parameter Sharing (Weight Tying)",
+      "4. Equivariance to Translation"
+    ]
+  },
+  {
+    "id": "u3_q20",
+    "unit": 3,
+    "unit_title": "Unit 3: Convolutional Neural Networks (CNNs)",
+    "q_num": "Q20 (Mid-I)",
+    "title": "Analyze different variants of the basic convolution function and compare their applications.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Diagrams and math for: Strided Conv, Dilated/Atrous Conv (spacing holes d), Transposed Conv (up-sampling), and 1x1 Pointwise Conv.",
+    "intuition": "Standard convolution can be modified: stride jumps over pixels; dilation expands receptive field without adding parameters; transposed convolution up-samples images; 1x1 conv changes channel depth.",
+    "diagram": "4 sub-grids: (1) Strided conv (step=2); (2) Dilated conv with rate d=2 (spaces between kernel elements); (3) Transposed conv; (4) 1x1 conv cross-channel projection.",
+    "formulas": "Effective Kernel Size with Dilation rate d: K' = K + (K - 1)(d - 1)  |  1x1 Conv Channel Reduction: C_in -> C_out without spatial alteration.",
+    "headings": [
+      "1. The Standard Convolution Baseline",
+      "2. Strided & Padded Convolutions",
+      "3. Dilated (Atrous) & 1x1 Pointwise Convolutions",
+      "4. Transposed (Deconvolution) & Comparative Applications Matrix"
+    ]
+  },
+  {
+    "id": "u3_q2_ii",
+    "unit": 3,
+    "unit_title": "Unit 3: Convolutional Neural Networks (CNNs)",
+    "q_num": "Q2 (Mid-II)",
+    "title": "Explain the role of Random and Unsupervised Features in CNNs.",
+    "marks": 5,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 3 (Edge)",
+    "priority_rank": 3,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Why random filters perform surprisingly well due to convolutional structure alone + Unsupervised pre-training (autoencoders, k-means).",
+    "intuition": "Even without training, random convolutional filters act as effective edge and texture detectors because the architecture itself enforces locality and translation equivariance.",
+    "diagram": "Flowchart: Image -> Fixed Random CNN Filter Bank -> Feature Maps -> Train Only Linear Classifier on top.",
+    "formulas": "Convolutional Inductive Bias: Accuracy(Random_CNN + Linear) >> Accuracy(Random_FC + Linear). Autoencoder: min ||X - g(f(X; W_enc); W_dec)||^2.",
+    "headings": [
+      "1. The Paradox of Random Convolutional Features",
+      "2. Architectural Inductive Bias vs Learned Weights",
+      "3. Unsupervised Feature Learning Strategies",
+      "4. Practical Trade-offs & Empirical Evidence"
+    ]
+  },
+  {
+    "id": "u3_q3_ii",
+    "unit": 3,
+    "unit_title": "Unit 3: Convolutional Neural Networks (CNNs)",
+    "q_num": "Q3 (Mid-II)",
+    "title": "Evaluate different efficient convolution algorithms and discuss their importance in computationally efficient CNNs.",
+    "marks": 10,
+    "blooms": "K5 (Evaluating)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "Depthwise Separable Convolution (MobileNet) step-by-step arithmetic proving computation reduction to (1/N + 1/D_k^2) + Winograd minimal filtering.",
+    "intuition": "Standard convolution filters across space and channels simultaneously. Depthwise separable convolution splits this into two steps: filter space first (depthwise), then mix channels (pointwise). This cuts operations by ~85%!",
+    "diagram": "Depthwise Separable Conv breakdown: (1) Depthwise Conv (1 filter per input channel) followed by (2) Pointwise 1x1 Conv (combining channels).",
+    "formulas": "Standard Ops: D_K * D_K * M * N * D_F * D_F  |  Depthwise Separable Ops: D_K * D_K * M * D_F * D_F + M * N * D_F * D_F  |  Ratio: 1/N + 1/(D_K^2) approx 1/8 to 1/9.",
+    "headings": [
+      "1. Computational Bottlenecks in Standard Convolutions",
+      "2. Depthwise Separable Convolutions (MobileNet)",
+      "3. Mathematical Complexity & FLOPs Reduction Proof",
+      "4. Fast Fourier Transform (FFT) & Winograd Minimal Filtering"
+    ]
+  },
+  {
+    "id": "u3_q4_ii",
+    "unit": 3,
+    "unit_title": "Unit 3: Convolutional Neural Networks (CNNs)",
+    "q_num": "Q4 (Mid-II)",
+    "title": "Analyze convolution and pooling as an infinitely strong prior and explain their significance in visual learning.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "Bayesian prior definition + Dirac delta / zero probability on non-local weights + condition when this prior fails (position-dependent tasks like face landmarking).",
+    "intuition": "In Bayesian statistics, an infinitely strong prior assigns probability zero to disallowed functions. By choosing a CNN over an MLP, we permanently forbid long-distance direct connections and force weights across space to be identical.",
+    "diagram": "Bayesian Prior Spectrum: Gaussian L2 prior (soft curve) vs Infinitely Strong CNN prior (Dirac delta spike forcing non-local weights strictly to zero).",
+    "formulas": "P(W_{ij}) = 0 for all |i - j| > receptive_field. Bayesian MAP: theta_MAP = argmax [log P(Data | theta) + log P(theta)]. If P(theta) = 0, Posterior = 0.",
+    "headings": [
+      "1. The Bayesian Conception of Priors in Neural Architectures",
+      "2. Convolution as an Infinitely Strong Spatial Prior",
+      "3. Pooling as an Infinitely Strong Translation Invariance Prior",
+      "4. Failure Modes: When Infinitely Strong Priors Damage Performance"
+    ]
+  },
+  {
+    "id": "u4_q5_ii",
+    "unit": 4,
+    "unit_title": "Unit 4: Sequence Models / Recurrent & Recursive Networks",
+    "q_num": "Q5 (Mid-II)",
+    "title": "Illustrate the process of Unfolding Computational Graphs in recurrent networks.",
+    "marks": 5,
+    "blooms": "K3 (Applying)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Side-by-side diagram: Folded recurrent loop circuit vs Unfolded chain across time steps t=1, 2, ... tau with shared weight matrices U, W, V.",
+    "intuition": "An RNN has a loop that feeds its previous state back into itself. Unfolding means unrolling this loop across time steps so it looks like a deep feedforward network where each layer is one time step, sharing the exact same weights.",
+    "diagram": "Left: Folded graph with self-loop on hidden state h. Right: Unfolded graph across t-1, t, t+1 showing input x_t, hidden state h_t, output o_t, and shared matrices U, W, V.",
+    "formulas": "h_t = f(h_{t-1}, x_t; theta) = tanh(W h_{t-1} + U x_t + b)  |  Shared parameters across all t: dW_total = sum_{t=1}^tau dW_t",
+    "headings": [
+      "1. Recurrent Circuit Representation (Folded Graph)",
+      "2. Temporal Unfolding Mechanism (Unrolled Graph)",
+      "3. Parameter Sharing Across Time Dimensions",
+      "4. Backpropagation Through Time (BPTT) Foundation"
+    ]
+  },
+  {
+    "id": "u4_q6_ii",
+    "unit": 4,
+    "unit_title": "Unit 4: Sequence Models / Recurrent & Recursive Networks",
+    "q_num": "Q6 (Mid-II)",
+    "title": "Explain the architecture of Recurrent Neural Networks (RNNs).",
+    "marks": 5,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Governing recurrence equations h_t and y_hat_t + architectural diagram + mathematical explanation of vanishing/exploding gradients via eigenvalues.",
+    "intuition": "Standard feedforward networks assume inputs are independent. RNNs have a hidden state vector h_t that functions as internal memory, updated at each step to process sequences of arbitrary length.",
+    "diagram": "RNN unit cell showing input x_t and previous hidden state h_{t-1} entering tanh block, producing current state h_t and output y_hat_t.",
+    "formulas": "Hidden update: h_t = tanh(W_{hh} h_{t-1} + W_{xh} x_t + b_h)  |  Output: y_hat_t = softmax(W_{hy} h_t + b_y)  |  Jacobian: dh_T/dh_t = prod_{k=t+1}^T W_{hh}^T diag(1 - h_k^2)",
+    "headings": [
+      "1. Architectural Blueprint & Memory Mechanism",
+      "2. Formal Mathematical Formulation",
+      "3. Information Flow Patterns (Many-to-One, One-to-Many, Many-to-Many)",
+      "4. Fundamental Limitation: The Long-Term Dependency Bottleneck"
+    ]
+  },
+  {
+    "id": "u4_q8_ii",
+    "unit": 4,
+    "unit_title": "Unit 4: Sequence Models / Recurrent & Recursive Networks",
+    "q_num": "Q8 (Mid-II)",
+    "title": "Differentiate Deep Recurrent Networks and Recursive Neural Networks.",
+    "marks": 5,
+    "blooms": "K5 (Evaluating)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Visual comparison: Deep stacked linear RNN (linear time O(T)) vs Tree-structured Recursive Network (hierarchical syntax tree O(log T) path length).",
+    "intuition": "A Deep RNN stacks multiple hidden layers over a 1D timeline. A Recursive Neural Network operates on tree structures (like sentence grammatical parse trees), combining child nodes hierarchically into parent nodes.",
+    "diagram": "Side-by-side: (1) Stacked Deep RNN (2D grid of time and depth). (2) Recursive Tree Network (binary branching syntax tree combining word pairs into phrases).",
+    "formulas": "Deep RNN: h_t^(l) = tanh(W^(l) h_{t-1}^(l) + U^(l) h_t^(l-1) + b^(l))  |  Recursive: p = tanh(W [c_1; c_2] + b). Path length: O(log T) vs O(T).",
+    "headings": [
+      "1. Structural Paradigms: Chain vs Tree Topologies",
+      "2. Deep Recurrent Networks (Stacking in Time & Space)",
+      "3. Recursive Neural Networks (Hierarchical Syntax Trees)",
+      "4. Exhaustive Comparison Matrix & Application Domains"
+    ]
+  },
+  {
+    "id": "u4_q9_ii",
+    "unit": 4,
+    "unit_title": "Unit 4: Sequence Models / Recurrent & Recursive Networks",
+    "q_num": "Q9 (Mid-II)",
+    "title": "Explain the Encoder\u2013Decoder Sequence-to-Sequence architecture with a suitable application.",
+    "marks": 10,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Block diagram showing Encoder RNN -> Fixed Context Vector c -> Decoder RNN with autoregressive token generation + Machine Translation walkthrough.",
+    "intuition": "When input length and output length differ (like translating English to French), an Encoder compresses the entire input sentence into a context vector c, and a Decoder unrolls c into the translated output sentence.",
+    "diagram": "Encoder RNN processing English tokens ('How', 'are', 'you') -> Context vector c -> Decoder RNN producing French tokens ('Comment', 'allez', 'vous', '<EOS>').",
+    "formulas": "Encoder: h_t = f_{enc}(x_t, h_{t-1}); Context: c = q(h_1, ..., h_{T_x}) = h_{T_x}  |  Decoder: s_t = f_{dec}(s_{t-1}, y_{t-1}, c); P(y_t) = softmax(g(s_t, y_{t-1}, c))",
+    "headings": [
+      "1. The Variable-Length Mapping Challenge",
+      "2. Architectural Blueprint: Encoder, Context Vector, Decoder",
+      "3. Step-by-Step Forward Pass for Neural Machine Translation",
+      "4. Information Bottleneck & Motivation for Attention"
+    ]
+  },
+  {
+    "id": "u4_q10_ii",
+    "unit": 4,
+    "unit_title": "Unit 4: Sequence Models / Recurrent & Recursive Networks",
+    "q_num": "Q10 (Mid-II)",
+    "title": "Illustrate the use of Bidirectional RNN, Deep RNN, and LSTM for suitable applications.",
+    "marks": 10,
+    "blooms": "K3 (Applying)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Combined architecture diagram: Forward hidden chain h_right, Backward hidden chain h_left, stacked deep layers, with LSTM gating inside each cell.",
+    "intuition": "In speech or text, understanding word t often requires future context (word t+1). Bidirectional RNN runs one pass forward and one pass backward, concatenating both states.",
+    "diagram": "Bidirectional flow: Forward states -> and Backward states <- meeting at output layer y_t, extended vertically across stacked depth.",
+    "formulas": "Forward: h_right_t = tanh(W_right h_right_{t-1} + U_right x_t)  |  Backward: h_left_t = tanh(W_left h_left_{t+1} + U_left x_t)  |  Output: y_t = g(V [h_right_t; h_left_t] + b)",
+    "headings": [
+      "1. Bidirectional RNNs: Leveraging Past & Future Context",
+      "2. Deep (Stacked) RNNs: Hierarchical Temporal Abstractions",
+      "3. Long Short-Term Memory (LSTM) Cell Integration",
+      "4. Unified Application Matrix (POS Tagging, Speech, Translation)"
+    ]
+  },
+  {
+    "id": "u4_q12_ii",
+    "unit": 4,
+    "unit_title": "Unit 4: Sequence Models / Recurrent & Recursive Networks",
+    "q_num": "Q12 (Mid-II)",
+    "title": "Explain the role of explicit memory in recurrent neural networks.",
+    "marks": 10,
+    "blooms": "K5 (Evaluating)",
+    "priority": "Tier 3 (Edge)",
+    "priority_rank": 3,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "Neural Turing Machine (NTM) architecture: Controller network, Read/Write heads, External memory matrix M_t, Content-based vs Location-based addressing.",
+    "intuition": "Standard RNNs cram all memory into a small hidden vector h_t. Explicit memory systems separate computation (the CPU/Controller) from storage (external RAM matrix) via differentiable read/write operations.",
+    "diagram": "Neural Turing Machine diagram: Controller network interacting with external Memory Matrix M_t (N x W) via Read and Write heads using soft attention weights w_t.",
+    "formulas": "Content similarity: K[k_t, M_t(i)] = (k_t . M_t(i)) / (||k_t|| ||M_t(i)||)  |  Read vector: r_t = sum_i w_t(i) M_t(i)  |  Write: M_t(i) = M_{t-1}(i) [1 - w_t(i) e_t] + w_t(i) a_t",
+    "headings": [
+      "1. Implicit vs Explicit Memory in Deep Learning",
+      "2. Neural Turing Machines (NTM) Architectural Framework",
+      "3. Differentiable Read & Write Addressing Mechanisms",
+      "4. Empirical Superiority: Algorithmic Learning & Long Horizons"
+    ]
+  },
+  {
+    "id": "u4_q11_ii",
+    "unit": 4,
+    "unit_title": "Unit 4: Sequence Models / Recurrent & Recursive Networks",
+    "q_num": "Q11 (Mid-II)",
+    "title": "Explain Echo State Networks and analyze their suitability for sequence-processing applications.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "Reservoir Computing diagram + Spectral Radius condition rho(W_res) < 1 + closed-form linear output training via Moore-Penrose pseudoinverse W_out = Y X^T (X X^T + alpha I)^{-1}.",
+    "intuition": "Instead of training recurrent weights with slow, unstable backprop, an Echo State Network freezes a massive random recurrent reservoir and only trains the linear output layer with simple linear regression in one shot!",
+    "diagram": "ESN Architecture: Input x_t -> Fixed Input Weights W_in -> Large Random Frozen Reservoir W_res with recurrent connections -> Trainable Linear Readout W_out -> Output y_t.",
+    "formulas": "Reservoir state: h_t = (1 - alpha) h_{t-1} + alpha * tanh(W_res h_{t-1} + W_in x_t)  |  Echo State Property: Spectral radius rho(W_res) < 1.0  |  Readout: W_out = Y_target X^dagger",
+    "headings": [
+      "1. The Reservoir Computing Paradigm",
+      "2. Architectural Components & Frozen Recurrent Dynamics",
+      "3. The Echo State Property & Spectral Radius Mathematical Condition",
+      "4. Closed-Form Training & Real-Time Sequence Applications"
+    ]
+  },
+  {
+    "id": "u4_q7_ii",
+    "unit": 4,
+    "unit_title": "Unit 4: Sequence Models / Recurrent & Recursive Networks",
+    "q_num": "Q7 (Mid-II)",
+    "title": "Analyze the architecture and working mechanism of Long Short-Term Memory (LSTM) networks.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Hard",
+    "difficulty_rank": 3,
+    "examiner_hook": "Full LSTM cell schematic showing x and + operators + all 4 gate equations (f_t, i_t, C_tilde_t, o_t) + Constant Error Carousel math (dC_t/dC_{t-1} = f_t).",
+    "intuition": "Standard RNNs fail because gradients multiply exponentially across time. LSTM introduces a Cell State highway where information flows by addition (+). Because dC_t/dC_{t-1} = f_t, gradients can travel across 100 steps without vanishing.",
+    "diagram": "Detailed LSTM cell internal schematic: Top horizontal Cell State line C_t with multiply (x) and add (+) nodes; Forget Gate f_t, Input Gate i_t, Candidate C_tilde_t, Output Gate o_t.",
+    "formulas": "Forget: f_t = sigma(W_f [h_{t-1}, x_t] + b_f)  |  Input: i_t = sigma(W_i [h_{t-1}, x_t] + b_i)  |  Candidate: C_tilde_t = tanh(W_c [h_{t-1}, x_t] + b_c)  |  Cell Update: C_t = f_t odot C_{t-1} + i_t odot C_tilde_t  |  Output: o_t = sigma(W_o [h_{t-1}, x_t] + b_o),  h_t = o_t odot tanh(C_t)",
+    "headings": [
+      "1. The Vanishing Gradient Dilemma in Standard RNNs",
+      "2. The LSTM Cell Architecture & Internal Gating Structure",
+      "3. Step-by-Step Mathematical Gate Equations",
+      "4. The Constant Error Carousel (CEC) Mathematical Proof"
+    ]
+  },
+  {
+    "id": "u5_q13_ii",
+    "unit": 5,
+    "unit_title": "Unit 5: Practical Methodology and Applications",
+    "q_num": "Q13 (Mid-II)",
+    "title": "Identify the important performance metrics used for evaluating deep learning models.",
+    "marks": 5,
+    "blooms": "K1 (Remembering)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Formulas for Precision, Recall, F1-Score + Confusion Matrix table + ROC-AUC vs PR-AUC curve contrast for imbalanced datasets.",
+    "intuition": "Accuracy is misleading when classes are imbalanced (a model predicting 99% healthy patients has 99% accuracy but misses all cancer cases). Precision measures correctness; Recall measures completeness; F1 balances both.",
+    "diagram": "2x2 Confusion Matrix (TP, FP, FN, TN) + Side-by-side ROC Curve (FPR vs TPR) and Precision-Recall Curve.",
+    "formulas": "Precision = TP / (TP + FP)  |  Recall = TP / (TP + FN)  |  F1 = 2 * (Precision * Recall) / (Precision + Recall)  |  Accuracy = (TP + TN) / (TP + TN + FP + FN)",
+    "headings": [
+      "1. Limitations of Raw Accuracy in Imbalanced Regimes",
+      "2. Confusion Matrix & Foundational Classification Metrics",
+      "3. Harmonic F-Beta Measures & Balancing Trade-offs",
+      "4. ROC-AUC vs Precision-Recall (PR) Curves"
+    ]
+  },
+  {
+    "id": "u5_q15_ii",
+    "unit": 5,
+    "unit_title": "Unit 5: Practical Methodology and Applications",
+    "q_num": "Q15 (Mid-II)",
+    "title": "Explain the role of default baseline models in deep learning experimentation.",
+    "marks": 5,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "The 4-step practical engineering rule: Build simple model first, verify end-to-end data pipeline, establish performance benchmark, iterate incrementally.",
+    "intuition": "Never build a massive Transformer on day one. Start with a dumb linear baseline or a tiny off-the-shelf CNN. If your data pipeline is broken or labels are noisy, a complex model will only obscure the bug.",
+    "diagram": "4-Stage Baseline Flow: Establish Performance Metric -> Build Minimal End-to-End Baseline -> Diagnose Deficiencies -> Guide Incremental Complexity.",
+    "formulas": "Error Decomposition: Total Error = Bayes Error + Approximation Error + Estimation Error + Optimization Error. Baseline pins down estimation/optimization lower bound.",
+    "headings": [
+      "1. The Engineering Imperative of Default Baselines",
+      "2. Characteristics of an Ideal Initial Baseline",
+      "3. Diagnostic Utility: Decoupling Pipeline Bugs from Architecture Bugs",
+      "4. Selection Taxonomy by Modality (Tabular, Vision, Speech, Text)"
+    ]
+  },
+  {
+    "id": "u5_q18_ii",
+    "unit": 5,
+    "unit_title": "Unit 5: Practical Methodology and Applications",
+    "q_num": "Q18 (Mid-II)",
+    "title": "Explain the practical methodology for evaluating a Deep Learning model using performance metrics, baseline models, hyperparameter selection, and debugging strategies.",
+    "marks": 10,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Complete end-to-end flowchart connecting all 4 pillars: (1) Target Metric -> (2) Baseline Pipeline -> (3) Capacity/Overfitting Diagnosis -> (4) Hyperparameter & Debugging loop. Highest scoring 10-marker!",
+    "intuition": "Deep learning in practice is an iterative scientific loop: specify error metrics, build a fast end-to-end baseline, determine whether training or test error dominates, and systematically apply regularizers or hyperparameter tuning.",
+    "diagram": "Large Master Flowchart: Problem Definition -> Metric Selection -> Establish Baseline -> Measure Train vs Test Gap -> Underfitting? (Bigger model/tune lr) vs Overfitting? (Regularize/augment/collect data) -> Deploy.",
+    "formulas": "Systematic Error Attribution: Bias Gap = Train_Loss - Bayes_Error  |  Variance Gap = Val_Loss - Train_Loss.",
+    "headings": [
+      "1. The Goodfellow 4-Step Practical Methodology Framework",
+      "2. Metric Specification & Real-World Constraints",
+      "3. Baseline Construction & Rapid Prototyping",
+      "4. Iterative Diagnosis, Hyperparameter Tuning & Debugging Loop"
+    ]
+  },
+  {
+    "id": "u5_q20_ii",
+    "unit": 5,
+    "unit_title": "Unit 5: Practical Methodology and Applications",
+    "q_num": "Q20 (Mid-II)",
+    "title": "Analyze the applications of Deep Learning in Computer Vision, Speech Recognition, and Natural Language Processing.",
+    "marks": 10,
+    "blooms": "K4 (Analyzing)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Comprehensive 3-column structured matrix comparing Vision, Speech, and NLP across: Core Tasks, Canonical Architectures, Loss Functions, and Pre-training paradigms.",
+    "intuition": "Deep learning revolutionized AI by providing specialized architectures tailored to data modalities: 2D grid convolutions for vision, sequence/spectrogram models for speech, and self-attention transformers for text.",
+    "diagram": "3 Domain Panes: (1) Vision (ResNet/YOLO/ViT) -> (2) Speech (Conformer/Whisper spectrogram encoder-decoder) -> (3) NLP (BERT/GPT self-attention transformer).",
+    "formulas": "Vision Loss: L_det = L_cls + lambda*L_box  |  Speech CTC Loss: P(pi | x) = prod_t P(pi_t | x)  |  NLP Causal LM: min sum_{t} -log P(w_t | w_{<t})",
+    "headings": [
+      "1. Cross-Domain Deep Learning Revolution",
+      "2. Computer Vision: Classification, Detection & Vision Transformers",
+      "3. Speech Recognition: Spectrogram Processing & End-to-End CTC/Conformers",
+      "4. Natural Language Processing: From Seq2Seq to Pre-trained Transformers"
+    ]
+  },
+  {
+    "id": "u5_q19_ii",
+    "unit": 5,
+    "unit_title": "Unit 5: Practical Methodology and Applications",
+    "q_num": "Q19 (Mid-II)",
+    "title": "Evaluate the applications of Large-Scale Deep Learning in real-world problems.",
+    "marks": 10,
+    "blooms": "K5 (Evaluating)",
+    "priority": "Tier 3 (Edge)",
+    "priority_rank": 3,
+    "difficulty": "Easy",
+    "difficulty_rank": 1,
+    "examiner_hook": "Data Parallelism (Parameter Server vs AllReduce) vs Model/Pipeline Parallelism + GPU cluster scaling laws + hardware constraints.",
+    "intuition": "Modern models cannot fit on a single GPU or train on a single machine. Large-scale deep learning splits either the data across GPUs (data parallelism) or splits model layers across GPUs (pipeline/tensor parallelism).",
+    "diagram": "Side-by-side: (1) Data Parallelism (identical models on GPU 1-4 receiving different mini-batches and synchronizing gradients via Ring-AllReduce). (2) Model Parallelism (Layer 1-4 on GPU 1, Layer 5-8 on GPU 2).",
+    "formulas": "Data Parallel update: Delta W = (1/K) sum_{k=1}^K Delta W_k via Ring-AllReduce with bandwidth 2(K-1)/K * size. Chinchilla Scaling Law: N_opt proportional to C^{0.46}, D_opt proportional to C^{0.54}.",
+    "headings": [
+      "1. The Imperative for Large-Scale Distributed Deep Learning",
+      "2. Distributed Training Paradigms: Data vs Model Parallelism",
+      "3. Communication Topologies & AllReduce Protocols",
+      "4. Industrial Real-World Applications (Recommenders, LLMs, Autonomous Systems)"
+    ]
+  },
+  {
+    "id": "u5_q14_ii",
+    "unit": 5,
+    "unit_title": "Unit 5: Practical Methodology and Applications",
+    "q_num": "Q14 (Mid-II)",
+    "title": "Explain different strategies for selecting hyperparameters.",
+    "marks": 5,
+    "blooms": "K2 (Understanding)",
+    "priority": "Tier 1 (Must-Win)",
+    "priority_rank": 1,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Bergstra & Bengio 2D search grid diagram showing why Random Search out-explores Grid Search for important parameters + Bayesian Optimization Gaussian Process overview.",
+    "intuition": "Grid search wastes computation checking useless combinations of an unimportant hyperparameter. Random search samples distinct values across all dimensions, finding optimal points far faster.",
+    "diagram": "2D hyperparameter space comparison: Grid Search (9 trials only tests 3 distinct values per axis) vs Random Search (9 trials tests 9 distinct values on the important axis).",
+    "formulas": "Probability of catching top 5% region with n random trials: P = 1 - (1 - 0.05)^n. For 99% confidence: n >= log(0.01) / log(0.95) approx 90 trials.",
+    "headings": [
+      "1. The Hyperparameter Optimization Problem",
+      "2. Manual Tuning & Heuristic Rules",
+      "3. Grid Search vs Random Search (Bergstra & Bengio Analysis)",
+      "4. Bayesian Optimization & Sequential Model-Based Optimization (SMBO)"
+    ]
+  },
+  {
+    "id": "u5_q16_ii",
+    "unit": 5,
+    "unit_title": "Unit 5: Practical Methodology and Applications",
+    "q_num": "Q16 (Mid-II)",
+    "title": "Evaluate the role of Debugging Strategies in improving model performance.",
+    "marks": 5,
+    "blooms": "K5 (Evaluating)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "The practical engineering checklist: Overfit tiny single batch (10 samples) to 100%, verify loss at init (-ln(1/K)), gradient checking via finite differences, monitor update-to-weight ratio.",
+    "intuition": "Neural networks fail silently\u2014buggy code doesn't crash; it just learns poorly. Debugging deep learning requires specialized sanity tests like verifying your model can easily memorize 5 samples.",
+    "diagram": "Debugging Diagnostic Decision Tree: Check Data Pipeline -> Test Tiny Batch Overfit -> Check Initial Loss -> Gradient Checking -> Activation/Gradient Histogram Inspection.",
+    "formulas": "Finite Difference Gradient Check: (J(theta + eps) - J(theta - eps)) / (2*eps) approx dJ/dtheta. Relative error check: ||g_num - g_backprop|| / (||g_num|| + ||g_backprop||) < 10^{-7}.",
+    "headings": [
+      "1. The Silent Failure Modes of Deep Neural Networks",
+      "2. Essential Sanity Checks (Initial Loss & Tiny Batch Overfitting)",
+      "3. Mathematical Verification: Numerical Gradient Checking",
+      "4. Visual Diagnostics (Weight Norms, Activation Histograms & Slices)"
+    ]
+  },
+  {
+    "id": "u5_q17_ii",
+    "unit": 5,
+    "unit_title": "Unit 5: Practical Methodology and Applications",
+    "q_num": "Q17 (Mid-II)",
+    "title": "Illustrate the use of Deep Learning for Multi-Digit Number Recognition.",
+    "marks": 10,
+    "blooms": "K3 (Applying)",
+    "priority": "Tier 2 (Core)",
+    "priority_rank": 2,
+    "difficulty": "Medium",
+    "difficulty_rank": 2,
+    "examiner_hook": "Goodfellow SVHN street number architecture: Shared convolutional feature trunk followed by multiple parallel softmax heads (head 0 for sequence length L, heads 1 to 5 for individual digits).",
+    "intuition": "Instead of segmenting digits with complex image processing, a single deep CNN directly processes the cropped house number and outputs the sequence length and each digit simultaneously via parallel softmax classifiers.",
+    "diagram": "SVHN Architecture diagram: Input Image (cropped house number) -> ConvNet feature trunk -> Fully Connected layer -> 6 Parallel Softmax Heads (Length Head L, Digit 1, Digit 2, Digit 3, Digit 4, Digit 5).",
+    "formulas": "Joint Sequence Probability: P(S | X) = P(L | X) * prod_{i=1}^L P(s_i | X, L)  |  Total Cross-Entropy Loss: L = -log P(L | X) - sum_{i=1}^L log P(s_i | X)",
+    "headings": [
+      "1. Problem Formulation: SVHN Benchmark Beyond Single Digits",
+      "2. Architecture Design: Convolutional Feature Trunk with Parallel Multi-Heads",
+      "3. Joint Sequence Probability & Loss Formulation",
+      "4. Inference Mechanism & Real-World Street View Integration"
+    ]
+  }
+];
+
+// Storage key
+const STORAGE_KEY = 'dl_exam_mastered_qids_v1';
+let masteredSet = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'));
+
+// State
+let filterState = {
+  search: '',
+  unit: 'all',
+  priority: 'all',
+  diff: 'all',
+  marks: 'all',
+  sort: 'diff-asc'
+};
+
+// Count calculations
+const cntEasy = rawQuestions.filter(q => q.difficulty === 'Easy').length;
+const cntMed = rawQuestions.filter(q => q.difficulty === 'Medium').length;
+const cntHard = rawQuestions.filter(q => q.difficulty === 'Hard').length;
+document.getElementById('cntEasy').textContent = cntEasy;
+document.getElementById('cntMed').textContent = cntMed;
+document.getElementById('cntHard').textContent = cntHard;
+
+// Theme Toggle
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+const themeIcon = document.getElementById('themeIcon');
+let currentTheme = localStorage.getItem('dl_theme') || 'light';
+document.documentElement.setAttribute('data-theme', currentTheme);
+updateThemeButton();
+
+themeToggleBtn.addEventListener('click', () => {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  localStorage.setItem('dl_theme', currentTheme);
+  updateThemeButton();
+});
+
+function updateThemeButton() {
+  if (currentTheme === 'dark') {
+    themeIcon.textContent = '☀️';
+    themeToggleBtn.innerHTML = '<span>☀️</span> Light Mode';
+  } else {
+    themeIcon.textContent = '🌙';
+    themeToggleBtn.innerHTML = '<span>🌙</span> Dark Mode';
+  }
+}
+
+// Collapsible Strategy Box
+document.getElementById('strategyToggle').addEventListener('click', () => {
+  const content = document.getElementById('strategyContent');
+  content.style.display = content.style.display === 'none' ? 'grid' : 'none';
+});
+
+// Collapsible Peaks Box
+document.getElementById('peaksToggle').addEventListener('click', () => {
+  const grid = document.getElementById('peaksGrid');
+  grid.style.display = grid.style.display === 'none' ? 'flex' : 'none';
+});
+
+// Render Questions
+function renderQuestions() {
+  const container = document.getElementById('questionsContainer');
+  const emptyState = document.getElementById('emptyState');
+  container.innerHTML = '';
+
+  let filtered = rawQuestions.filter(q => {
+    // Search
+    if (filterState.search) {
+      const qText = `${q.q_num} ${q.title} ${q.examiner_hook} ${q.intuition} ${q.unit_title}`.toLowerCase();
+      if (!qText.includes(filterState.search.toLowerCase())) return false;
+    }
+    // Unit
+    if (filterState.unit !== 'all' && q.unit !== parseInt(filterState.unit)) return false;
+    // Priority
+    if (filterState.priority !== 'all' && q.priority !== filterState.priority) return false;
+    // Difficulty
+    if (filterState.diff !== 'all' && q.difficulty !== filterState.diff) return false;
+    // Marks
+    if (filterState.marks !== 'all' && q.marks !== parseInt(filterState.marks)) return false;
+
+    return true;
+  });
+
+  // Sorting
+  filtered.sort((a, b) => {
+    if (filterState.sort === 'diff-asc') {
+      return a.difficulty_rank - b.difficulty_rank || a.priority_rank - b.priority_rank;
+    }
+    if (filterState.sort === 'diff-desc') {
+      return b.difficulty_rank - a.difficulty_rank || a.priority_rank - b.priority_rank;
+    }
+    if (filterState.sort === 'priority-asc') {
+      return a.priority_rank - b.priority_rank || a.difficulty_rank - b.difficulty_rank;
+    }
+    if (filterState.sort === 'marks-desc') {
+      return b.marks - a.marks || a.difficulty_rank - b.difficulty_rank;
+    }
+    if (filterState.sort === 'unit-asc') {
+      return a.unit - b.unit || a.difficulty_rank - b.difficulty_rank;
+    }
+    return 0;
+  });
+
+  document.getElementById('visibleCount').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    emptyState.style.display = 'block';
+    return;
+  }
+  emptyState.style.display = 'none';
+
+  filtered.forEach(q => {
+    const isMastered = masteredSet.has(q.id);
+    const card = document.createElement('article');
+    card.className = `q-card ${isMastered ? 'is-mastered' : ''}`;
+    card.id = `card_${q.id}`;
+
+    // Priority badge class
+    let prioClass = 'tier-3';
+    if (q.priority.includes('Tier 1')) prioClass = 'tier-1';
+    else if (q.priority.includes('Tier 2')) prioClass = 'tier-2';
+
+    // Difficulty badge class
+    let diffClass = 'diff-easy';
+    if (q.difficulty === 'Medium') diffClass = 'diff-med';
+    else if (q.difficulty === 'Hard') diffClass = 'diff-hard';
+
+    card.innerHTML = `
+      <div class="q-card-top">
+        <div class="q-checkbox-title">
+          <input type="checkbox" class="q-checkbox" id="chk_${q.id}" ${isMastered ? 'checked' : ''} title="Mark as Mastered">
+          <div class="q-title-wrap">
+            <span class="q-unit-tag">${q.unit_title} • ${q.q_num}</span>
+            <h3 class="q-title">${q.title}</h3>
+          </div>
+        </div>
+        <div class="q-badges">
+          <span class="badge marks-${q.marks}">${q.marks} Marks</span>
+          <span class="badge ${prioClass}">${q.priority}</span>
+          <span class="badge ${diffClass}">${q.difficulty === 'Easy' ? '🟢 Easy' : q.difficulty === 'Medium' ? '🟡 Medium' : '🔴 Hard'}</span>
+        </div>
+      </div>
+
+      <div class="examiner-hook-box">
+        <div class="examiner-hook-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Examiner Grading Hook (Must-Include Key Elements)
+        </div>
+        <div class="examiner-hook-text">${q.examiner_hook}</div>
+      </div>
+
+      <div>
+        <button class="skeleton-toggle" onclick="toggleSkeleton('${q.id}')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          <span>View 1-Page Exam Skeleton</span>
+        </button>
+      </div>
+
+      <div class="skeleton-body" id="skel_${q.id}">
+        <div>
+          <div class="skel-section-title">💡 2-Minute Intuition (Mental Anchor)</div>
+          <p>${q.intuition}</p>
+        </div>
+        <div>
+          <div class="skel-section-title">📊 Must-Draw Architecture / Diagram</div>
+          <div class="code-box">${q.diagram}</div>
+        </div>
+        <div>
+          <div class="skel-section-title">∫ Governing Mathematical Equations</div>
+          <div class="code-box">${q.formulas}</div>
+        </div>
+        <div>
+          <div class="skel-section-title">📋 4 Structured Section Headings for 10/10 Score</div>
+          <ul class="skel-headings-list">
+            ${q.headings.map(h => `<li>${h}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+
+    // Checkbox listener
+    const chk = card.querySelector(`#chk_${q.id}`);
+    chk.addEventListener('change', () => {
+      if (chk.checked) {
+        masteredSet.add(q.id);
+        card.classList.add('is-mastered');
+      } else {
+        masteredSet.delete(q.id);
+        card.classList.remove('is-mastered');
+      }
+      saveProgress();
+    });
+
+    container.appendChild(card);
+  });
+}
+
+function toggleSkeleton(id) {
+  const skel = document.getElementById(`skel_${id}`);
+  skel.classList.toggle('open');
+}
+
+// Progress & Storage
+function saveProgress() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(masteredSet)));
+  updateProgressUI();
+}
+
+function updateProgressUI() {
+  const count = masteredSet.size;
+  const total = rawQuestions.length;
+  const pct = Math.round((count / total) * 100);
+  
+  // Calculate projected score out of 60 based on weight
+  let scoreWeight = 0;
+  rawQuestions.forEach(q => {
+    if (masteredSet.has(q.id)) {
+      if (q.priority.includes('Tier 1')) scoreWeight += 2.5;
+      else if (q.priority.includes('Tier 2')) scoreWeight += 1.25;
+      else scoreWeight += 0.5;
+    }
+  });
+  const projected = Math.min(60, Math.round(scoreWeight));
+
+  document.getElementById('masteredCount').textContent = count;
+  document.getElementById('masteryPercent').textContent = `${pct}%`;
+  document.getElementById('footerPercent').textContent = `${pct}%`;
+  document.getElementById('projectedMarks').textContent = `${projected}`;
+  document.getElementById('progressBar').style.width = `${pct}%`;
+}
+
+// Button actions
+document.getElementById('btnSelectAll').addEventListener('click', () => {
+  rawQuestions.forEach(q => {
+    if (q.priority.includes('Tier 1')) {
+      masteredSet.add(q.id);
+    }
+  });
+  saveProgress();
+  renderQuestions();
+});
+
+document.getElementById('btnResetProgress').addEventListener('click', () => {
+  if (confirm('Reset your study progress?')) {
+    masteredSet.clear();
+    saveProgress();
+    renderQuestions();
+  }
+});
+
+// Search input
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  filterState.search = e.target.value.trim();
+  renderQuestions();
+});
+
+// Sort select
+document.getElementById('sortSelect').addEventListener('change', (e) => {
+  filterState.sort = e.target.value;
+  renderQuestions();
+});
+
+// Filter pill clicks
+document.querySelectorAll('.filter-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    const filterType = pill.getAttribute('data-filter');
+    const filterVal = pill.getAttribute('data-val');
+
+    // Deselect siblings
+    document.querySelectorAll(`.filter-pill[data-filter="${filterType}"]`).forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+
+    filterState[filterType] = filterVal;
+    renderQuestions();
+  });
+});
+
+// Initial boot
+updateProgressUI();
+renderQuestions();
+</script>
+
+</body>
+</html>
