@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     contentArea: document.getElementById('studyViewport'),
     contentScroll: document.getElementById('contentScrollArea'),
     searchInput: document.getElementById('searchInput'),
+    mobileNavToggle: document.getElementById('mobileSidebarToggle'),
+    sidebar: document.getElementById('sidebar'),
     unitPills: document.querySelectorAll('.unit-filter-scroll .filter-pill'),
     marksBtns: document.querySelectorAll('.marks-toggle-group .marks-btn'),
     globalViewBtns: document.querySelectorAll('.view-switch-group .view-btn'),
@@ -140,6 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.question-nav-item').forEach(el => el.classList.remove('active'));
         item.classList.add('active');
         scrollToQuestion(q.id);
+
+        // Auto-close mobile sidebar on selection
+        if (dom.sidebar && dom.sidebar.classList.contains('mobile-open')) {
+          dom.sidebar.classList.remove('mobile-open');
+        }
       });
 
       dom.sidebarList.appendChild(item);
@@ -464,6 +471,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('zen-mode', state.zenMode);
     dom.zenBtn.classList.toggle('active', state.zenMode);
   });
+
+  // Mobile sidebar toggle & backdrop
+  if (dom.mobileNavToggle && dom.sidebar) {
+    dom.mobileNavToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dom.sidebar.classList.toggle('mobile-open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (dom.sidebar.classList.contains('mobile-open') && !dom.sidebar.contains(e.target) && e.target !== dom.mobileNavToggle) {
+        dom.sidebar.classList.remove('mobile-open');
+      }
+    });
+  }
 
   // --- MODALS ---
   dom.formulaModalBtn.addEventListener('click', () => {

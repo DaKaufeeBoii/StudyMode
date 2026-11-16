@@ -862,6 +862,88 @@ header {
   border: 1px solid var(--border);
 }
 
+/* Mobile Responsiveness for Roadmap */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .header-title h1 {
+    font-size: 1.05rem;
+  }
+  .header-title p {
+    font-size: 0.75rem;
+  }
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .main-container {
+    padding: 14px 12px;
+  }
+  .hero-tracker {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 18px 16px;
+  }
+  .hero-info h2 {
+    font-size: 1.25rem;
+  }
+  .stat-pills {
+    gap: 6px;
+  }
+  .stat-pill {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+  .search-filter-card {
+    padding: 14px;
+  }
+  .search-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sort-select {
+    width: 100%;
+  }
+  .q-card {
+    padding: 14px 16px;
+  }
+  .q-card-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .q-meta-badges {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .skel-block {
+    padding: 10px 12px;
+  }
+  .floating-footer {
+    padding: 10px 14px;
+  }
+  .footer-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .footer-stats {
+    justify-content: space-between;
+    font-size: 0.8rem;
+  }
+  .footer-btn-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .action-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -876,9 +958,11 @@ header {
       <p>B. Tech IV-I | Complete Semester Exam Question Bank Navigator & Mastery Roadmap</p>
     </div>
     <div class="header-actions">
-      <a href="DEEP_LEARNING_COMPLETE_QB.html" class="theme-toggle-btn" target="_blank" title="Open full answers document">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        Full Answers File
+      <a href="index.html" class="theme-toggle-btn" title="Open Classic StudyMode">
+        🏠 Classic
+      </a>
+      <a href="master_portal.html" class="theme-toggle-btn" title="Open Master Study Portal">
+        📖 Master Portal
       </a>
       <button class="theme-toggle-btn" id="themeToggleBtn">
         <span id="themeIcon">🌙</span> Dark Mode
